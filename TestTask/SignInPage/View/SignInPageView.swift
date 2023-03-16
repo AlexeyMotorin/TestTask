@@ -2,9 +2,8 @@ import UIKit
 
 protocol SignInPageViewProtocol: AnyObject {
     var presenter: SignInPagePresenterProtocol? { get set}
+    func errorEmailEnter()
 }
-
-
 
 final class SignInPageView: UIView {
     
@@ -63,6 +62,7 @@ final class SignInPageView: UIView {
     
     private lazy var emailTextField: TestTaskTextField = {
         let textField = TestTaskTextField(frame: .zero, placeHolderText: Constants.emailPlaceholder)
+        textField.keyboardType = .emailAddress
         return textField
     }()
     
@@ -119,7 +119,10 @@ final class SignInPageView: UIView {
         backgroundColor = .ttBackgroundColor
         googleSignInWithStackView.delegate = self
         appleSignInWithStackView.delegate = self
-        addSubviews()
+        firstNameTextField.delegate = self
+        lastNameTextField.delegate = self
+        emailTextField.delegate = self
+        self.addSubviews()
         activateConstraints()
     }
     
@@ -132,7 +135,7 @@ final class SignInPageView: UIView {
         
         signInWithStackView.addArrangedSubview(googleSignInWithStackView)
         signInWithStackView.addArrangedSubview(appleSignInWithStackView)
-    
+        
     }
     
     private func activateConstraints() {
@@ -167,11 +170,30 @@ final class SignInPageView: UIView {
             signInWithStackView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             signInWithStackView.topAnchor.constraint(equalTo: logInButton.bottomAnchor, constant: frame.height / 20),
             signInWithStackView.widthAnchor.constraint(equalToConstant: frame.width / 2)
- 
+            
         ])
     }
     
     @objc private func signInButtonTapped() {
+        guard firstNameTextField.text != "" else {
+            firstNameTextField.shake()
+            return
+        }
+        
+        guard lastNameTextField.text != "" else {
+            lastNameTextField.shake()
+            return
+        }
+        
+        guard
+            emailTextField.text != "",
+            let email = emailTextField.text,
+            let presenter = presenter,
+            presenter.checkValidEmail(with: email)
+        else {
+            emailTextField.shake()
+            return
+        }
         viewController?.signIn()
     }
     
@@ -180,7 +202,25 @@ final class SignInPageView: UIView {
     }
 }
 
-extension SignInPageView: SignInPageViewProtocol {}
+extension SignInPageView: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField == emailTextField {
+            let email = textField.text
+            _ = presenter?.checkValidEmail(with: email)
+        }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.endEditing(true)
+    }
+}
+
+extension SignInPageView: SignInPageViewProtocol {
+    func errorEmailEnter() {
+        emailTextField.shake()
+        emailTextField.text = ""
+    }
+}
 
 extension SignInPageView: TestTaskSignInWithStackViewDelegate {
     func signInWithAccount(account: SignInWith?) {

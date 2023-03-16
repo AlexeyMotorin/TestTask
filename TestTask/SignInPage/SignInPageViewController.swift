@@ -22,6 +22,16 @@ final class SignInPageViewController: UIViewController {
         addScreenView(view: signInPageView)
         view.backgroundColor = .systemBackground
     }
+    
+    private func showLoginController() {
+        let loginViewController = LoginViewController()
+        loginViewController.modalPresentationStyle = .fullScreen
+        present(loginViewController, animated: true)
+    }
+    
+    deinit {
+        print("deinit SignInPageViewController")
+    }
 }
 
 extension SignInPageViewController: SignInPageViewControllerProtocol {
@@ -39,6 +49,6 @@ extension SignInPageViewController: SignInPageViewControllerProtocol {
     }
     
     func logIn() {
-        print("log In")
+        showLoginController()
     }
 }

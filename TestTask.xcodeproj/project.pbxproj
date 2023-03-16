@@ -25,6 +25,10 @@
 		5B846A0329C2F7CD0081741B /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B846A0229C2F7CD0081741B /* Montserrat-Medium.ttf */; };
 		5B846A0729C3020F0081741B /* TestTaskTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B846A0629C3020F0081741B /* TestTaskTextField.swift */; };
 		5B846A0C29C315F80081741B /* TestTaskSignInWithStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B846A0B29C315F80081741B /* TestTaskSignInWithStackView.swift */; };
+		5B846A0E29C375880081741B /* UITextField+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B846A0D29C375880081741B /* UITextField+extension.swift */; };
+		5B846A1529C38ABD0081741B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B846A1429C38ABD0081741B /* LoginViewController.swift */; };
+		5B846A1729C38B000081741B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B846A1629C38B000081741B /* LoginView.swift */; };
+		5B846A1929C38CF60081741B /* LoginViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B846A1829C38CF60081741B /* LoginViewPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +71,10 @@
 		5B846A0229C2F7CD0081741B /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		5B846A0629C3020F0081741B /* TestTaskTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTaskTextField.swift; sourceTree = "<group>"; };
 		5B846A0B29C315F80081741B /* TestTaskSignInWithStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTaskSignInWithStackView.swift; sourceTree = "<group>"; };
+		5B846A0D29C375880081741B /* UITextField+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+extension.swift"; sourceTree = "<group>"; };
+		5B846A1429C38ABD0081741B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		5B846A1629C38B000081741B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		5B846A1829C38CF60081741B /* LoginViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +127,7 @@
 			children = (
 				5B8469B829C243850081741B /* AppDelegate.swift */,
 				5B8469BA29C243850081741B /* SceneDelegate.swift */,
+				5B846A1029C38A6C0081741B /* Login */,
 				5B8469F229C24C890081741B /* SignInPage */,
 				5B8469EA29C2473B0081741B /* Helpers */,
 				5B8469EB29C247470081741B /* Resources */,
@@ -146,11 +155,11 @@
 		5B8469EA29C2473B0081741B /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				5B846A0F29C3759A0081741B /* CustomTestTaskUI */,
 				5B8469EC29C247840081741B /* UIViewController+extension.swift */,
 				5B8469F029C249D90081741B /* UIColor+extension.swift */,
 				5B8469F629C24D590081741B /* UIView+extension.swift */,
-				5B846A0629C3020F0081741B /* TestTaskTextField.swift */,
-				5B846A0B29C315F80081741B /* TestTaskSignInWithStackView.swift */,
+				5B846A0D29C375880081741B /* UITextField+extension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -208,6 +217,49 @@
 				5B846A0229C2F7CD0081741B /* Montserrat-Medium.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		5B846A0F29C3759A0081741B /* CustomTestTaskUI */ = {
+			isa = PBXGroup;
+			children = (
+				5B846A0629C3020F0081741B /* TestTaskTextField.swift */,
+				5B846A0B29C315F80081741B /* TestTaskSignInWithStackView.swift */,
+			);
+			path = CustomTestTaskUI;
+			sourceTree = "<group>";
+		};
+		5B846A1029C38A6C0081741B /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				5B846A1429C38ABD0081741B /* LoginViewController.swift */,
+				5B846A1329C38AA80081741B /* Presenter */,
+				5B846A1229C38A9F0081741B /* View */,
+				5B846A1129C38A960081741B /* Model */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		5B846A1129C38A960081741B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5B846A1229C38A9F0081741B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5B846A1629C38B000081741B /* LoginView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5B846A1329C38AA80081741B /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				5B846A1829C38CF60081741B /* LoginViewPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -343,6 +395,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B846A1529C38ABD0081741B /* LoginViewController.swift in Sources */,
 				5B8469BD29C243850081741B /* SignInPageViewController.swift in Sources */,
 				5B8469B929C243850081741B /* AppDelegate.swift in Sources */,
 				5B8469F729C24D590081741B /* UIView+extension.swift in Sources */,
@@ -351,8 +404,11 @@
 				5B8469EF29C2484D0081741B /* SignPageViewPresenter.swift in Sources */,
 				5B8469E929C245130081741B /* SignInPageView.swift in Sources */,
 				5B846A0729C3020F0081741B /* TestTaskTextField.swift in Sources */,
+				5B846A0E29C375880081741B /* UITextField+extension.swift in Sources */,
+				5B846A1729C38B000081741B /* LoginView.swift in Sources */,
 				5B846A0C29C315F80081741B /* TestTaskSignInWithStackView.swift in Sources */,
 				5B8469ED29C247840081741B /* UIViewController+extension.swift in Sources */,
+				5B846A1929C38CF60081741B /* LoginViewPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
