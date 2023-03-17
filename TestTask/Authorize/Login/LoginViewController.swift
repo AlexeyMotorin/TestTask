@@ -21,18 +21,19 @@ final class LoginViewController: UIViewController {
         addScreenView(view: loginView)
         view.backgroundColor = .systemBackground
                 
-        // Подразумевается что аккаунт уже есть, сохраняем его первый раз
+        // Подразумевается что аккаунт уже есть, сохраняем его первом запуске
         creatAccount()
     }
     
     private func creatAccount() {
+        
         let firstCalledApp =  UserDefaults.standard.bool(forKey: "firstCalledApp")
         guard !firstCalledApp else { return }
         
-        let firstName = "Alexey"
+        let profile = Profile(firstName: "Satria Adhi", lastName: "Pradana", email: "Satria@pradana.com")
         let password = "1234"
         
-        AccountStorage.shared.firstName = firstName
+        AccountStorage.shared.profile = profile
         AccountStorage.shared.password = password
         
         UserDefaults.standard.set(true, forKey: "firstCalledApp")

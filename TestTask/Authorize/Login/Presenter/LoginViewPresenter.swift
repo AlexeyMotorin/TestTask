@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 protocol LoginViewPresenterProtocol: AnyObject {
     var view: LoginViewProtocol? { get set}
@@ -31,18 +31,16 @@ final class LoginViewPresenter {
     }
     
     private func showpageOneViewController() {
-//        guard let window = UIApplication.shared.windows.first else { fatalError("Invalid configuration")}
-//        let splashVC = SplashViewController()
-//        window.rootViewController = splashVC
-        
-        print("Login")
+        guard let window = UIApplication.shared.windows.first else { fatalError("Invalid configuration")}
+        let tabBarVC = TabBarController()
+        window.rootViewController = tabBarVC
     }
 }
 
 extension LoginViewPresenter: LoginViewPresenterProtocol {
     func checkAccount(with firstName: String?, and password: String?) {
         guard
-            firstName == account.firstName,
+            firstName == account.profile?.firstName,
             password == account.password
         else {
             view?.requestShowErrorAlert(alertModel: errorAlertModel)

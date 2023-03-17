@@ -8,13 +8,14 @@ final class AccountStorage {
     private init() {}
     
     // MARK: Private enum
-    private enum Keys: String {
+    private enum Keys: String, CodingKey {
         case password = "Password"
-        case firstName = "First name"
+        case profile = "Profile"
     }
     
     // MARK: Private properties
     private let keyChainWrapper = KeychainWrapper.standard
+    private let userDefaults = UserDefaults.standard
     
     // MARK: Public properties
     var password: String? {
@@ -29,20 +30,20 @@ final class AccountStorage {
         }
     }
     
-    var firstName: String? {
-        get { keyChainWrapper.string(forKey: Keys.firstName.rawValue) }
+    var profile: Profile? {
+        get { userDefaults.value(Profile.self, forKey: Keys.profile.rawValue) }
         set {
             guard let newValue else { return }
-            let isSucces = keyChainWrapper.set(newValue, forKey: Keys.firstName.rawValue)
+            let isSucces = userDefaults.set(encodable: newValue, forKey: Keys.profile.rawValue)
             guard isSucces else {
-                assertionFailure("Ошибка записи имени")
+                assertionFailure("Ошибка записи профиля")
                 return
             }
         }
     }
     
     func removeAccount() {
-        KeychainWrapper.standard.removeObject(forKey: Keys.password.rawValue)
-        KeychainWrapper.standard.removeObject(forKey: Keys.firstName.rawValue)
+        keyChainWrapper.removeObject(forKey: Keys.password.rawValue)
+        userDefaults.removeObject(forKey: Keys.profile.rawValue)
     }
 }

@@ -42,6 +42,8 @@
 		5B846A3729C458930081741B /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B846A3629C458930081741B /* CartViewController.swift */; };
 		5B846A3929C458AE0081741B /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B846A3829C458AE0081741B /* CommentsViewController.swift */; };
 		5B846A3D29C458E10081741B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B846A3C29C458E10081741B /* ProfileViewController.swift */; };
+		5B846A4029C48F7C0081741B /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B846A3F29C48F7C0081741B /* Profile.swift */; };
+		5B846A4229C499140081741B /* Userdefaults+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B846A4129C499140081741B /* Userdefaults+extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +102,8 @@
 		5B846A3629C458930081741B /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		5B846A3829C458AE0081741B /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
 		5B846A3C29C458E10081741B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		5B846A3F29C48F7C0081741B /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		5B846A4129C499140081741B /* Userdefaults+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Userdefaults+extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +190,7 @@
 				5B8469F029C249D90081741B /* UIColor+extension.swift */,
 				5B8469F629C24D590081741B /* UIView+extension.swift */,
 				5B846A0D29C375880081741B /* UITextField+extension.swift */,
+				5B846A4129C499140081741B /* Userdefaults+extension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -231,6 +236,7 @@
 		5B8469F529C24CC00081741B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5B846A3F29C48F7C0081741B /* Profile.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -520,6 +526,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B846A1529C38ABD0081741B /* LoginViewController.swift in Sources */,
+				5B846A4029C48F7C0081741B /* Profile.swift in Sources */,
 				5B8469BD29C243850081741B /* SignInPageViewController.swift in Sources */,
 				5B846A3929C458AE0081741B /* CommentsViewController.swift in Sources */,
 				5B8469B929C243850081741B /* AppDelegate.swift in Sources */,
@@ -534,6 +541,7 @@
 				5B846A0E29C375880081741B /* UITextField+extension.swift in Sources */,
 				5B846A2C29C44CE80081741B /* ErrorAlertPresenter.swift in Sources */,
 				5B846A1729C38B000081741B /* LoginView.swift in Sources */,
+				5B846A4229C499140081741B /* Userdefaults+extension.swift in Sources */,
 				5B846A3D29C458E10081741B /* ProfileViewController.swift in Sources */,
 				5B846A0C29C315F80081741B /* TestTaskSignInWithStackView.swift in Sources */,
 				5B8469ED29C247840081741B /* UIViewController+extension.swift in Sources */,

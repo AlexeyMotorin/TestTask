@@ -3,6 +3,7 @@ import UIKit
 protocol SignInPageViewProtocol: AnyObject {
     var presenter: SignInPagePresenterProtocol? { get set}
     var viewController: SignInPageViewControllerProtocol? { get set}
+    func requestShowErrorAlert(alertModel: ErrorAlertModel)
     func errorEmailEnter()
 }
 
@@ -196,11 +197,27 @@ final class SignInPageView: UIView {
             emailTextField.shake()
             return
         }
-        viewController?.signIn()
+        checkProfile()
     }
     
     @objc private func logInButtonTapped() {
         viewController?.logIn()
+    }
+    
+    private func checkProfile() {
+        guard let firstName = firstNameTextField.text,
+              let lastName = lastNameTextField.text,
+              let email = emailTextField.text
+        else { return }
+        
+        let profile = Profile(firstName: firstName, lastName: lastName, email: email)
+       
+        presenter?.checkProfile(profile: profile)
+    }
+    
+    private func resetTextField(_ textField: UITextField) {
+        textField.shake()
+        textField.text = ""
     }
 }
 
@@ -218,6 +235,13 @@ extension SignInPageView: UITextFieldDelegate {
 }
 
 extension SignInPageView: SignInPageViewProtocol {
+    func requestShowErrorAlert(alertModel: ErrorAlertModel) {
+        resetTextField(firstNameTextField)
+        resetTextField(lastNameTextField)
+        resetTextField(emailTextField)
+        viewController?.showErrorAlert(alertModel: alertModel)
+    }
+    
     func errorEmailEnter() {
         emailTextField.shake()
         emailTextField.text = ""
