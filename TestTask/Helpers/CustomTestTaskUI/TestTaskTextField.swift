@@ -14,6 +14,7 @@ final class TestTaskTextField: UITextField {
     
     private func textFieldConfig() {
        translatesAutoresizingMaskIntoConstraints = false
+        autocorrectionType = .no
        textAlignment = .center
        layer.cornerRadius = 16
        backgroundColor = .ttLightGray

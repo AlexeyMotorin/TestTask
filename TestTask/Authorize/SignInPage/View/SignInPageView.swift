@@ -2,6 +2,7 @@ import UIKit
 
 protocol SignInPageViewProtocol: AnyObject {
     var presenter: SignInPagePresenterProtocol? { get set}
+    var viewController: SignInPageViewControllerProtocol? { get set}
     func errorEmailEnter()
 }
 
@@ -17,6 +18,7 @@ final class SignInPageView: UIView {
         static let emailPlaceholder = "Email"
         static let signInButtonText = "Sign in"
         static let logInButtonText = "Log in"
+        static let questionAboutAccountLabelText = "Already have an account?"
     }
     
     init(frame: CGRect, viewController: SignInPageViewControllerProtocol?) {
@@ -83,7 +85,7 @@ final class SignInPageView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .ttGray
         label.font = UIFont(name: "Montserrat", size: 10)
-        label.text = "Already have an account?"
+        label.text = Constants.questionAboutAccountLabelText
         return label
     }()
     

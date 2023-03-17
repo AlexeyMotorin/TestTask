@@ -3,15 +3,16 @@ import UIKit
 protocol LoginViewProtocol: AnyObject {
     var presenter: LoginViewPresenterProtocol? { get set }
     func setSecureTextEntry(_ bool: Bool)
+    func requestShowErrorAlert(alertModel: ErrorAlertModel)
 }
 
 final class LoginView: UIView {
     
+    // MARK: - Public properties
     weak var viewController: LoginViewControllerProtocol?
     var presenter: LoginViewPresenterProtocol?
     
-  
-    
+    // MARK: - Private properties
     private struct Constants {
         static let welcomeLabelText = "Welcome back"
         static let textFieldCornenRadius: CGFloat = 16
@@ -21,6 +22,7 @@ final class LoginView: UIView {
         static let loginButtonText = "Login"
     }
     
+    // MARK: UI
     private lazy var welcomLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -70,6 +72,7 @@ final class LoginView: UIView {
         return button
     }()
     
+    // MARK: - init
     init(frame: CGRect, viewController: LoginViewControllerProtocol?) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
@@ -84,10 +87,13 @@ final class LoginView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Private methods
     private func setupView() {
         backgroundColor = .systemBackground
         addSubviews()
         activateConstraints()
+        firstNameTextField.delegate = self
+        passwordTextField.delegate = self
     }
     
     private func addSubviews() {
@@ -124,16 +130,43 @@ final class LoginView: UIView {
     }
     
     @objc private func signInButtonTapped() {
-        viewController?.dismissVC()
+        
+       
+        let firstName = firstNameTextField.text
+        let password = passwordTextField.text
+        
+        presenter?.checkAccount(with: firstName, and: password)
+  
     }
     
     @objc private func showPassword() {
         presenter?.showPassword()
     }
+    
+    private func resetTextField(_ textField: UITextField) {
+        textField.shake()
+        textField.text = ""
+    }
 }
 
+
+// MARK: LoginViewProtocol
 extension LoginView: LoginViewProtocol {
+    func requestShowErrorAlert(alertModel: ErrorAlertModel) {
+        resetTextField(passwordTextField)
+        resetTextField(firstNameTextField)
+        viewController?.showErrorAlert(alertModel: alertModel)
+    }
+    
     func setSecureTextEntry(_ bool: Bool) {
         passwordTextField.isSecureTextEntry = bool
     }
 }
+
+// MARK: UITextFieldDelegate
+extension LoginView: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.endEditing(true)
+    }
+}
+

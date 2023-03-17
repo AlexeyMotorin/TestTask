@@ -26,6 +26,6 @@ extension SignInPagePresenter: SignInPagePresenterProtocol {
     }
     
     func viewDidLoad() {
-        print("Вызываю did load")
+        print("SignInPagePresenter did load")
     }
 }

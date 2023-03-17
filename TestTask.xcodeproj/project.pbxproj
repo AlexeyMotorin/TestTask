@@ -12,7 +12,7 @@
 		5B8469BD29C243850081741B /* SignInPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8469BC29C243850081741B /* SignInPageViewController.swift */; };
 		5B8469C229C243850081741B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B8469C129C243850081741B /* Assets.xcassets */; };
 		5B8469C529C243850081741B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B8469C329C243850081741B /* LaunchScreen.storyboard */; };
-		5B8469D029C243850081741B /* TestTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8469CF29C243850081741B /* TestTaskTests.swift */; };
+		5B8469D029C243850081741B /* SignInPageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8469CF29C243850081741B /* SignInPageTest.swift */; };
 		5B8469DA29C243850081741B /* TestTaskUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8469D929C243850081741B /* TestTaskUITests.swift */; };
 		5B8469DC29C243850081741B /* TestTaskUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8469DB29C243850081741B /* TestTaskUITestsLaunchTests.swift */; };
 		5B8469E929C245130081741B /* SignInPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8469E829C245130081741B /* SignInPageView.swift */; };
@@ -29,6 +29,13 @@
 		5B846A1529C38ABD0081741B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B846A1429C38ABD0081741B /* LoginViewController.swift */; };
 		5B846A1729C38B000081741B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B846A1629C38B000081741B /* LoginView.swift */; };
 		5B846A1929C38CF60081741B /* LoginViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B846A1829C38CF60081741B /* LoginViewPresenter.swift */; };
+		5B846A1D29C43ACB0081741B /* SignInPageViewControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B846A1C29C43ACB0081741B /* SignInPageViewControllerSpy.swift */; };
+		5B846A2029C43B410081741B /* SignInPageViewSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B846A1F29C43B410081741B /* SignInPageViewSpy.swift */; };
+		5B846A2229C43C0B0081741B /* SignInPagePresenterSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B846A2129C43C0B0081741B /* SignInPagePresenterSpy.swift */; };
+		5B846A2529C444560081741B /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 5B846A2429C444560081741B /* SwiftKeychainWrapper */; };
+		5B846A2729C444650081741B /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B846A2629C444650081741B /* Storage.swift */; };
+		5B846A2929C44CAF0081741B /* ErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B846A2829C44CAF0081741B /* ErrorAlert.swift */; };
+		5B846A2C29C44CE80081741B /* ErrorAlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B846A2B29C44CE80081741B /* ErrorAlertPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,7 +64,7 @@
 		5B8469C429C243850081741B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5B8469C629C243850081741B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B8469CB29C243850081741B /* TestTaskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestTaskTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5B8469CF29C243850081741B /* TestTaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTaskTests.swift; sourceTree = "<group>"; };
+		5B8469CF29C243850081741B /* SignInPageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInPageTest.swift; sourceTree = "<group>"; };
 		5B8469D529C243850081741B /* TestTaskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestTaskUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B8469D929C243850081741B /* TestTaskUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTaskUITests.swift; sourceTree = "<group>"; };
 		5B8469DB29C243850081741B /* TestTaskUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTaskUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -75,6 +82,12 @@
 		5B846A1429C38ABD0081741B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5B846A1629C38B000081741B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		5B846A1829C38CF60081741B /* LoginViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewPresenter.swift; sourceTree = "<group>"; };
+		5B846A1C29C43ACB0081741B /* SignInPageViewControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInPageViewControllerSpy.swift; sourceTree = "<group>"; };
+		5B846A1F29C43B410081741B /* SignInPageViewSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInPageViewSpy.swift; sourceTree = "<group>"; };
+		5B846A2129C43C0B0081741B /* SignInPagePresenterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInPagePresenterSpy.swift; sourceTree = "<group>"; };
+		5B846A2629C444650081741B /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		5B846A2829C44CAF0081741B /* ErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlert.swift; sourceTree = "<group>"; };
+		5B846A2B29C44CE80081741B /* ErrorAlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlertPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B846A2529C444560081741B /* SwiftKeychainWrapper in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +119,7 @@
 		5B8469AC29C243850081741B = {
 			isa = PBXGroup;
 			children = (
+				5B846A2A29C44CB60081741B /* ErrorAlert */,
 				5B8469B729C243850081741B /* TestTask */,
 				5B8469CE29C243850081741B /* TestTaskTests */,
 				5B8469D829C243850081741B /* TestTaskUITests */,
@@ -125,10 +140,8 @@
 		5B8469B729C243850081741B /* TestTask */ = {
 			isa = PBXGroup;
 			children = (
-				5B8469B829C243850081741B /* AppDelegate.swift */,
-				5B8469BA29C243850081741B /* SceneDelegate.swift */,
-				5B846A1029C38A6C0081741B /* Login */,
-				5B8469F229C24C890081741B /* SignInPage */,
+				5B846A1B29C439120081741B /* Application */,
+				5B846A1A29C438FA0081741B /* Authorize */,
 				5B8469EA29C2473B0081741B /* Helpers */,
 				5B8469EB29C247470081741B /* Resources */,
 			);
@@ -138,7 +151,7 @@
 		5B8469CE29C243850081741B /* TestTaskTests */ = {
 			isa = PBXGroup;
 			children = (
-				5B8469CF29C243850081741B /* TestTaskTests.swift */,
+				5B846A1E29C43AD80081741B /* SignInPageTests */,
 			);
 			path = TestTaskTests;
 			sourceTree = "<group>";
@@ -262,6 +275,45 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
+		5B846A1A29C438FA0081741B /* Authorize */ = {
+			isa = PBXGroup;
+			children = (
+				5B846A1029C38A6C0081741B /* Login */,
+				5B8469F229C24C890081741B /* SignInPage */,
+				5B846A2629C444650081741B /* Storage.swift */,
+			);
+			path = Authorize;
+			sourceTree = "<group>";
+		};
+		5B846A1B29C439120081741B /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				5B8469B829C243850081741B /* AppDelegate.swift */,
+				5B8469BA29C243850081741B /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		5B846A1E29C43AD80081741B /* SignInPageTests */ = {
+			isa = PBXGroup;
+			children = (
+				5B8469CF29C243850081741B /* SignInPageTest.swift */,
+				5B846A1C29C43ACB0081741B /* SignInPageViewControllerSpy.swift */,
+				5B846A1F29C43B410081741B /* SignInPageViewSpy.swift */,
+				5B846A2129C43C0B0081741B /* SignInPagePresenterSpy.swift */,
+			);
+			path = SignInPageTests;
+			sourceTree = "<group>";
+		};
+		5B846A2A29C44CB60081741B /* ErrorAlert */ = {
+			isa = PBXGroup;
+			children = (
+				5B846A2829C44CAF0081741B /* ErrorAlert.swift */,
+				5B846A2B29C44CE80081741B /* ErrorAlertPresenter.swift */,
+			);
+			path = ErrorAlert;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -278,6 +330,9 @@
 			dependencies = (
 			);
 			name = TestTask;
+			packageProductDependencies = (
+				5B846A2429C444560081741B /* SwiftKeychainWrapper */,
+			);
 			productName = TestTask;
 			productReference = 5B8469B529C243850081741B /* TestTask.app */;
 			productType = "com.apple.product-type.application";
@@ -350,6 +405,9 @@
 				Base,
 			);
 			mainGroup = 5B8469AC29C243850081741B;
+			packageReferences = (
+				5B846A2329C444560081741B /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */,
+			);
 			productRefGroup = 5B8469B629C243850081741B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -405,10 +463,13 @@
 				5B8469E929C245130081741B /* SignInPageView.swift in Sources */,
 				5B846A0729C3020F0081741B /* TestTaskTextField.swift in Sources */,
 				5B846A0E29C375880081741B /* UITextField+extension.swift in Sources */,
+				5B846A2C29C44CE80081741B /* ErrorAlertPresenter.swift in Sources */,
 				5B846A1729C38B000081741B /* LoginView.swift in Sources */,
 				5B846A0C29C315F80081741B /* TestTaskSignInWithStackView.swift in Sources */,
 				5B8469ED29C247840081741B /* UIViewController+extension.swift in Sources */,
+				5B846A2929C44CAF0081741B /* ErrorAlert.swift in Sources */,
 				5B846A1929C38CF60081741B /* LoginViewPresenter.swift in Sources */,
+				5B846A2729C444650081741B /* Storage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,7 +477,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B8469D029C243850081741B /* TestTaskTests.swift in Sources */,
+				5B846A2229C43C0B0081741B /* SignInPagePresenterSpy.swift in Sources */,
+				5B846A1D29C43ACB0081741B /* SignInPageViewControllerSpy.swift in Sources */,
+				5B846A2029C43B410081741B /* SignInPageViewSpy.swift in Sources */,
+				5B8469D029C243850081741B /* SignInPageTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -746,6 +810,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5B846A2329C444560081741B /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jrendel/SwiftKeychainWrapper.git";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5B846A2429C444560081741B /* SwiftKeychainWrapper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5B846A2329C444560081741B /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */;
+			productName = SwiftKeychainWrapper;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5B8469AD29C243850081741B /* Project object */;
 }
