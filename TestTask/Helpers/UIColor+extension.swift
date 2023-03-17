@@ -7,4 +7,5 @@ extension UIColor {
     static var ttPurple: UIColor? { UIColor(named: "TTPurple") }
     static var ttBlue: UIColor? { UIColor(named: "TTBlue") }
     static var ttBlack: UIColor? { UIColor(named: "TTBlack") }
+    static var ttWhite: UIColor? { UIColor(named: "TTWhite") }
 }

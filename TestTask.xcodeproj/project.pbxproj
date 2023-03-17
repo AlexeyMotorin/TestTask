@@ -36,6 +36,12 @@
 		5B846A2729C444650081741B /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B846A2629C444650081741B /* Storage.swift */; };
 		5B846A2929C44CAF0081741B /* ErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B846A2829C44CAF0081741B /* ErrorAlert.swift */; };
 		5B846A2C29C44CE80081741B /* ErrorAlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B846A2B29C44CE80081741B /* ErrorAlertPresenter.swift */; };
+		5B846A2E29C4570F0081741B /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B846A2D29C4570F0081741B /* TabBarController.swift */; };
+		5B846A3129C457A60081741B /* PageOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B846A3029C457A60081741B /* PageOneViewController.swift */; };
+		5B846A3529C4587D0081741B /* LikeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B846A3429C4587D0081741B /* LikeViewController.swift */; };
+		5B846A3729C458930081741B /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B846A3629C458930081741B /* CartViewController.swift */; };
+		5B846A3929C458AE0081741B /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B846A3829C458AE0081741B /* CommentsViewController.swift */; };
+		5B846A3D29C458E10081741B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B846A3C29C458E10081741B /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +94,12 @@
 		5B846A2629C444650081741B /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		5B846A2829C44CAF0081741B /* ErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlert.swift; sourceTree = "<group>"; };
 		5B846A2B29C44CE80081741B /* ErrorAlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlertPresenter.swift; sourceTree = "<group>"; };
+		5B846A2D29C4570F0081741B /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		5B846A3029C457A60081741B /* PageOneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageOneViewController.swift; sourceTree = "<group>"; };
+		5B846A3429C4587D0081741B /* LikeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeViewController.swift; sourceTree = "<group>"; };
+		5B846A3629C458930081741B /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		5B846A3829C458AE0081741B /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
+		5B846A3C29C458E10081741B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,7 +131,6 @@
 		5B8469AC29C243850081741B = {
 			isa = PBXGroup;
 			children = (
-				5B846A2A29C44CB60081741B /* ErrorAlert */,
 				5B8469B729C243850081741B /* TestTask */,
 				5B8469CE29C243850081741B /* TestTaskTests */,
 				5B8469D829C243850081741B /* TestTaskUITests */,
@@ -142,6 +153,8 @@
 			children = (
 				5B846A1B29C439120081741B /* Application */,
 				5B846A1A29C438FA0081741B /* Authorize */,
+				5B846A3E29C459090081741B /* TabBarControllers */,
+				5B846A2A29C44CB60081741B /* ErrorAlert */,
 				5B8469EA29C2473B0081741B /* Helpers */,
 				5B8469EB29C247470081741B /* Resources */,
 			);
@@ -314,6 +327,59 @@
 			path = ErrorAlert;
 			sourceTree = "<group>";
 		};
+		5B846A2F29C457580081741B /* Page */ = {
+			isa = PBXGroup;
+			children = (
+				5B846A3029C457A60081741B /* PageOneViewController.swift */,
+			);
+			path = Page;
+			sourceTree = "<group>";
+		};
+		5B846A3229C457C30081741B /* LikePage */ = {
+			isa = PBXGroup;
+			children = (
+				5B846A3429C4587D0081741B /* LikeViewController.swift */,
+			);
+			path = LikePage;
+			sourceTree = "<group>";
+		};
+		5B846A3329C458630081741B /* CartPage */ = {
+			isa = PBXGroup;
+			children = (
+				5B846A3629C458930081741B /* CartViewController.swift */,
+			);
+			path = CartPage;
+			sourceTree = "<group>";
+		};
+		5B846A3A29C458C30081741B /* Comments */ = {
+			isa = PBXGroup;
+			children = (
+				5B846A3829C458AE0081741B /* CommentsViewController.swift */,
+			);
+			path = Comments;
+			sourceTree = "<group>";
+		};
+		5B846A3B29C458D10081741B /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				5B846A3C29C458E10081741B /* ProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		5B846A3E29C459090081741B /* TabBarControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5B846A2D29C4570F0081741B /* TabBarController.swift */,
+				5B846A2F29C457580081741B /* Page */,
+				5B846A3229C457C30081741B /* LikePage */,
+				5B846A3329C458630081741B /* CartPage */,
+				5B846A3A29C458C30081741B /* Comments */,
+				5B846A3B29C458D10081741B /* Profile */,
+			);
+			path = TabBarControllers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -455,21 +521,27 @@
 			files = (
 				5B846A1529C38ABD0081741B /* LoginViewController.swift in Sources */,
 				5B8469BD29C243850081741B /* SignInPageViewController.swift in Sources */,
+				5B846A3929C458AE0081741B /* CommentsViewController.swift in Sources */,
 				5B8469B929C243850081741B /* AppDelegate.swift in Sources */,
+				5B846A2E29C4570F0081741B /* TabBarController.swift in Sources */,
 				5B8469F729C24D590081741B /* UIView+extension.swift in Sources */,
 				5B8469BB29C243850081741B /* SceneDelegate.swift in Sources */,
 				5B8469F129C249D90081741B /* UIColor+extension.swift in Sources */,
 				5B8469EF29C2484D0081741B /* SignPageViewPresenter.swift in Sources */,
+				5B846A3129C457A60081741B /* PageOneViewController.swift in Sources */,
 				5B8469E929C245130081741B /* SignInPageView.swift in Sources */,
 				5B846A0729C3020F0081741B /* TestTaskTextField.swift in Sources */,
 				5B846A0E29C375880081741B /* UITextField+extension.swift in Sources */,
 				5B846A2C29C44CE80081741B /* ErrorAlertPresenter.swift in Sources */,
 				5B846A1729C38B000081741B /* LoginView.swift in Sources */,
+				5B846A3D29C458E10081741B /* ProfileViewController.swift in Sources */,
 				5B846A0C29C315F80081741B /* TestTaskSignInWithStackView.swift in Sources */,
 				5B8469ED29C247840081741B /* UIViewController+extension.swift in Sources */,
+				5B846A3729C458930081741B /* CartViewController.swift in Sources */,
 				5B846A2929C44CAF0081741B /* ErrorAlert.swift in Sources */,
 				5B846A1929C38CF60081741B /* LoginViewPresenter.swift in Sources */,
 				5B846A2729C444650081741B /* Storage.swift in Sources */,
+				5B846A3529C4587D0081741B /* LikeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
