@@ -3,7 +3,7 @@ import UIKit
 protocol SignInPageViewProtocol: AnyObject {
     var presenter: SignInPagePresenterProtocol? { get set}
     var viewController: SignInPageViewControllerProtocol? { get set}
-    func requestShowErrorAlert(alertModel: ErrorAlertModel)
+    func requestShowErrorAlert(alertModel: ErrorAlertModel?)
     func errorEmailEnter()
 }
 
@@ -40,7 +40,7 @@ final class SignInPageView: UIView {
     private lazy var signInLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont(name: "Montserrat", size: 30)
+        label.font = UIFont(name: "Montserrat-Medium", size: 30)
         label.text = "Sign in"
         return label
     }()
@@ -77,7 +77,7 @@ final class SignInPageView: UIView {
         button.setTitleColor(.ttLightGray, for: .normal)
         button.setTitle(Constants.signInButtonText, for: .normal)
         button.addTarget(self, action: #selector(signInButtonTapped), for: .touchUpInside)
-        button.titleLabel?.font = UIFont(name: "Montserrat", size: 16)
+        button.titleLabel?.font = UIFont(name: "Montserrat-Bold", size: 14)
         return button
     }()
     
@@ -97,7 +97,7 @@ final class SignInPageView: UIView {
         button.contentHorizontalAlignment = .left
         button.setTitle(Constants.logInButtonText, for: .normal)
         button.addTarget(self, action: #selector(logInButtonTapped), for: .touchUpInside)
-        button.titleLabel?.font = UIFont(name: "Montserrat", size: 10)
+        button.titleLabel?.font = UIFont(name: "Montserrat-Medium", size: 10)
         return button
     }()
     
@@ -164,7 +164,7 @@ final class SignInPageView: UIView {
             signInButton.heightAnchor.constraint(equalToConstant: 55),
             signInButton.widthAnchor.constraint(equalToConstant: stackWidth),
             
-            questionAboutAccountLabel.topAnchor.constraint(equalTo: textFieldsStackView.bottomAnchor, constant: frame.height / 40),
+            questionAboutAccountLabel.topAnchor.constraint(equalTo: textFieldsStackView.bottomAnchor, constant: frame.height / 70),
             questionAboutAccountLabel.leadingAnchor.constraint(equalTo: textFieldsStackView.leadingAnchor),
             
             logInButton.leftAnchor.constraint(equalTo: questionAboutAccountLabel.rightAnchor, constant: 10),
@@ -235,7 +235,7 @@ extension SignInPageView: UITextFieldDelegate {
 }
 
 extension SignInPageView: SignInPageViewProtocol {
-    func requestShowErrorAlert(alertModel: ErrorAlertModel) {
+    func requestShowErrorAlert(alertModel: ErrorAlertModel?) {
         resetTextField(firstNameTextField)
         resetTextField(lastNameTextField)
         resetTextField(emailTextField)

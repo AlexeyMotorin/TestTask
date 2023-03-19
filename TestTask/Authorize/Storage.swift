@@ -45,5 +45,6 @@ final class AccountStorage {
     func removeAccount() {
         keyChainWrapper.removeObject(forKey: Keys.password.rawValue)
         userDefaults.removeObject(forKey: Keys.profile.rawValue)
+        UserDefaults.standard.set(false, forKey: "firstCalledApp")
     }
 }

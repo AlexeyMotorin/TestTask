@@ -26,7 +26,7 @@ final class LoginView: UIView {
     private lazy var welcomLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont(name: "Montserrat", size: 30)
+        label.font = UIFont(name: "Montserrat-Medium", size: 30)
         label.text = Constants.welcomeLabelText
         return label
     }()
@@ -58,7 +58,7 @@ final class LoginView: UIView {
         button.setTitleColor(.ttLightGray, for: .normal)
         button.setTitle(Constants.loginButtonText, for: .normal)
         button.addTarget(self, action: #selector(signInButtonTapped), for: .touchUpInside)
-        button.titleLabel?.font = UIFont(name: "Montserrat", size: 16)
+        button.titleLabel?.font = UIFont(name: "Montserrat-bold", size: 14)
         return button
     }()
     

@@ -44,6 +44,15 @@
 		5B846A3D29C458E10081741B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B846A3C29C458E10081741B /* ProfileViewController.swift */; };
 		5B846A4029C48F7C0081741B /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B846A3F29C48F7C0081741B /* Profile.swift */; };
 		5B846A4229C499140081741B /* Userdefaults+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B846A4129C499140081741B /* Userdefaults+extension.swift */; };
+		5B846A4529C5AC490081741B /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B846A4429C5AC490081741B /* ProfileView.swift */; };
+		5B846A4829C5ACC80081741B /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B846A4729C5ACC80081741B /* ProfilePresenter.swift */; };
+		5B846A4A29C5B7BE0081741B /* AvatarInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B846A4929C5B7BD0081741B /* AvatarInfoView.swift */; };
+		5BC9BB7429C6FB6700EB068C /* ProfileSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC9BB7329C6FB6700EB068C /* ProfileSettingsCell.swift */; };
+		5BC9BB7B29C718BE00EB068C /* CellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC9BB7A29C718BE00EB068C /* CellType.swift */; };
+		5BC9BB7F29C7257500EB068C /* LogoutAlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC9BB7E29C7257500EB068C /* LogoutAlertModel.swift */; };
+		5BC9BB8129C7258900EB068C /* LogoutAlertPresenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC9BB8029C7258900EB068C /* LogoutAlertPresenterDelegate.swift */; };
+		5BC9BB8329C7259D00EB068C /* LogoutAlertPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC9BB8229C7259D00EB068C /* LogoutAlertPresenterProtocol.swift */; };
+		5BC9BB8529C725AC00EB068C /* LogoutAlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC9BB8429C725AC00EB068C /* LogoutAlertPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +113,15 @@
 		5B846A3C29C458E10081741B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		5B846A3F29C48F7C0081741B /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		5B846A4129C499140081741B /* Userdefaults+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Userdefaults+extension.swift"; sourceTree = "<group>"; };
+		5B846A4429C5AC490081741B /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		5B846A4729C5ACC80081741B /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
+		5B846A4929C5B7BD0081741B /* AvatarInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarInfoView.swift; sourceTree = "<group>"; };
+		5BC9BB7329C6FB6700EB068C /* ProfileSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsCell.swift; sourceTree = "<group>"; };
+		5BC9BB7A29C718BE00EB068C /* CellType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellType.swift; sourceTree = "<group>"; };
+		5BC9BB7E29C7257500EB068C /* LogoutAlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutAlertModel.swift; sourceTree = "<group>"; };
+		5BC9BB8029C7258900EB068C /* LogoutAlertPresenterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutAlertPresenterDelegate.swift; sourceTree = "<group>"; };
+		5BC9BB8229C7259D00EB068C /* LogoutAlertPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutAlertPresenterProtocol.swift; sourceTree = "<group>"; };
+		5BC9BB8429C725AC00EB068C /* LogoutAlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutAlertPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -368,7 +386,8 @@
 		5B846A3B29C458D10081741B /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				5B846A3C29C458E10081741B /* ProfileViewController.swift */,
+				5BC9BB7D29C7255D00EB068C /* LogoutAlert */,
+				5BC9BB7C29C7254F00EB068C /* ProfileViewController */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -384,6 +403,62 @@
 				5B846A3B29C458D10081741B /* Profile */,
 			);
 			path = TabBarControllers;
+			sourceTree = "<group>";
+		};
+		5B846A4329C5AC310081741B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5B846A4429C5AC490081741B /* ProfileView.swift */,
+				5B846A4929C5B7BD0081741B /* AvatarInfoView.swift */,
+				5BC9BB7229C6FA8600EB068C /* ProfileTableViewCells */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5B846A4629C5ACB40081741B /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				5B846A4729C5ACC80081741B /* ProfilePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		5BC9BB7229C6FA8600EB068C /* ProfileTableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				5BC9BB7329C6FB6700EB068C /* ProfileSettingsCell.swift */,
+			);
+			path = ProfileTableViewCells;
+			sourceTree = "<group>";
+		};
+		5BC9BB7529C7085200EB068C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5BC9BB7A29C718BE00EB068C /* CellType.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5BC9BB7C29C7254F00EB068C /* ProfileViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5B846A3C29C458E10081741B /* ProfileViewController.swift */,
+				5BC9BB7529C7085200EB068C /* Model */,
+				5B846A4329C5AC310081741B /* View */,
+				5B846A4629C5ACB40081741B /* Presenter */,
+			);
+			path = ProfileViewController;
+			sourceTree = "<group>";
+		};
+		5BC9BB7D29C7255D00EB068C /* LogoutAlert */ = {
+			isa = PBXGroup;
+			children = (
+				5BC9BB7E29C7257500EB068C /* LogoutAlertModel.swift */,
+				5BC9BB8029C7258900EB068C /* LogoutAlertPresenterDelegate.swift */,
+				5BC9BB8229C7259D00EB068C /* LogoutAlertPresenterProtocol.swift */,
+				5BC9BB8429C725AC00EB068C /* LogoutAlertPresenter.swift */,
+			);
+			path = LogoutAlert;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -526,27 +601,36 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B846A1529C38ABD0081741B /* LoginViewController.swift in Sources */,
+				5BC9BB7B29C718BE00EB068C /* CellType.swift in Sources */,
 				5B846A4029C48F7C0081741B /* Profile.swift in Sources */,
 				5B8469BD29C243850081741B /* SignInPageViewController.swift in Sources */,
 				5B846A3929C458AE0081741B /* CommentsViewController.swift in Sources */,
 				5B8469B929C243850081741B /* AppDelegate.swift in Sources */,
+				5B846A4A29C5B7BE0081741B /* AvatarInfoView.swift in Sources */,
 				5B846A2E29C4570F0081741B /* TabBarController.swift in Sources */,
 				5B8469F729C24D590081741B /* UIView+extension.swift in Sources */,
 				5B8469BB29C243850081741B /* SceneDelegate.swift in Sources */,
+				5BC9BB8129C7258900EB068C /* LogoutAlertPresenterDelegate.swift in Sources */,
+				5BC9BB8329C7259D00EB068C /* LogoutAlertPresenterProtocol.swift in Sources */,
 				5B8469F129C249D90081741B /* UIColor+extension.swift in Sources */,
 				5B8469EF29C2484D0081741B /* SignPageViewPresenter.swift in Sources */,
 				5B846A3129C457A60081741B /* PageOneViewController.swift in Sources */,
 				5B8469E929C245130081741B /* SignInPageView.swift in Sources */,
 				5B846A0729C3020F0081741B /* TestTaskTextField.swift in Sources */,
+				5BC9BB7429C6FB6700EB068C /* ProfileSettingsCell.swift in Sources */,
 				5B846A0E29C375880081741B /* UITextField+extension.swift in Sources */,
+				5BC9BB7F29C7257500EB068C /* LogoutAlertModel.swift in Sources */,
 				5B846A2C29C44CE80081741B /* ErrorAlertPresenter.swift in Sources */,
 				5B846A1729C38B000081741B /* LoginView.swift in Sources */,
 				5B846A4229C499140081741B /* Userdefaults+extension.swift in Sources */,
 				5B846A3D29C458E10081741B /* ProfileViewController.swift in Sources */,
 				5B846A0C29C315F80081741B /* TestTaskSignInWithStackView.swift in Sources */,
 				5B8469ED29C247840081741B /* UIViewController+extension.swift in Sources */,
+				5B846A4529C5AC490081741B /* ProfileView.swift in Sources */,
+				5BC9BB8529C725AC00EB068C /* LogoutAlertPresenter.swift in Sources */,
 				5B846A3729C458930081741B /* CartViewController.swift in Sources */,
 				5B846A2929C44CAF0081741B /* ErrorAlert.swift in Sources */,
+				5B846A4829C5ACC80081741B /* ProfilePresenter.swift in Sources */,
 				5B846A1929C38CF60081741B /* LoginViewPresenter.swift in Sources */,
 				5B846A2729C444650081741B /* Storage.swift in Sources */,
 				5B846A3529C4587D0081741B /* LikeViewController.swift in Sources */,

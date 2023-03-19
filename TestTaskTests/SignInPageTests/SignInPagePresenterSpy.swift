@@ -3,6 +3,11 @@ import Foundation
 
 final class SignInPagePresenterSpy: SignInPagePresenterProtocol {
     
+    var errorAlertModel: TestTask.ErrorAlertModel?
+    
+    func checkProfile(profile: TestTask.Profile) {}
+    
+    
     var view: SignInPageViewProtocol?
     
     var viewDidLoadCalled = false

@@ -20,7 +20,7 @@ final class TestTaskTextField: UITextField {
        backgroundColor = .ttLightGray
        let grayColor: UIColor = .ttGray ?? UIColor.gray
         
-        let font = UIFont(name: "Montserrat", size: 12) ?? UIFont()
+        let font = UIFont(name: "Montserrat-Medium", size: 12) ?? UIFont()
         let attributes = [
             NSAttributedString.Key.foregroundColor : grayColor,
             NSAttributedString.Key.font : font

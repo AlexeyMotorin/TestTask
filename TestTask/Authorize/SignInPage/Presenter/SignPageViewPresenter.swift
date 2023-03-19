@@ -2,7 +2,7 @@ import UIKit
 
 protocol SignInPagePresenterProtocol: AnyObject {
     var view: SignInPageViewProtocol? { get set}
-    var errorAlertModel: ErrorAlertModel { get }
+    var errorAlertModel: ErrorAlertModel? { get }
     func viewDidLoad()
     func checkValidEmail(with email: String?) -> Bool
     func checkProfile(profile: Profile)
@@ -12,7 +12,7 @@ final class SignInPagePresenter {
     weak var view: SignInPageViewProtocol?
     private let account = AccountStorage.shared
     
-    var errorAlertModel: ErrorAlertModel {
+    var errorAlertModel: ErrorAlertModel? {
         let tittle = "Такой пользователь уже существует"
         let message = "Повторите попытку"
         let buttonText = "Ok"

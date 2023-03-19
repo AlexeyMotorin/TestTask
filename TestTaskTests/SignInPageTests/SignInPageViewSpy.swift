@@ -19,5 +19,7 @@ final class SignInPageViewSpy: SignInPageViewProtocol {
     func signInWith(with account: SignInWith) {
         viewController?.signInWith(account: account)
     }
+    
+    func requestShowErrorAlert(alertModel: TestTask.ErrorAlertModel?) {}
 }
 

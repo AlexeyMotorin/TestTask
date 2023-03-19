@@ -95,9 +95,8 @@ final class TabBarController: UITabBarController {
         tabBar.unselectedItemTintColor = .ttGray
         
     }
-}
-    extension UIColor {
-        static var tabBarItemAccent: UIColor { UIColor.blue }
-        static var mainWhite: UIColor { UIColor.red }
-        static var tabBarItemLight: UIColor { UIColor.lightGray }
+    
+    deinit {
+        print("deinit TabBarController")
     }
+}

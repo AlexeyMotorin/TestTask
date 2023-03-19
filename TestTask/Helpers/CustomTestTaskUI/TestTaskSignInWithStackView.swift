@@ -18,7 +18,7 @@ final class TestTaskSignInWithStackView: UIStackView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(.ttBlack, for: .normal)
         button.addTarget(self, action: #selector(signInWithButtonTapped), for: .touchUpInside)
-        button.titleLabel?.font = UIFont(name: "Montserrat", size: 10)
+        button.titleLabel?.font = UIFont(name: "Montserrat-Medium", size: 10)
         button.contentHorizontalAlignment = .left
         return button
     }()

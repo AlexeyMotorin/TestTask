@@ -2,7 +2,6 @@ import Foundation
 @testable import TestTask
 
 final class SignInPageViewControllerSpy: SignInPageViewControllerProtocol {
- 
     var signInViewScreen: TestTask.SignInPageViewProtocol?
     var signInCalled = false
     var logInCalled = false
@@ -26,4 +25,6 @@ final class SignInPageViewControllerSpy: SignInPageViewControllerProtocol {
         self.account = account.rawValue
         signInWith = true
     }
+    
+    func showErrorAlert(alertModel: TestTask.ErrorAlertModel?) {}
 }
