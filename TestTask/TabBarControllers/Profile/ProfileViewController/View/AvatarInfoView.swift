@@ -65,7 +65,6 @@ final class AvatarInfoView: UIView {
         return button
     }()
     
-
     init(frame: CGRect, imageURL: String?, profileName: String?) {
         super.init(frame: frame)
         profileFirstAndLastNameLabel.text = profileName
@@ -79,7 +78,7 @@ final class AvatarInfoView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-        
+    
     private func setupView() {
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .clear
@@ -102,7 +101,7 @@ final class AvatarInfoView: UIView {
             
             profileLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             profileLabel.topAnchor.constraint(equalTo: topAnchor),
-                        
+            
             profileAvatarImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
             profileAvatarImageView.topAnchor.constraint(equalTo: profileLabel.bottomAnchor, constant: frame.height / 60),
             profileAvatarImageView.widthAnchor.constraint(equalToConstant: imageViewSide),
@@ -110,12 +109,10 @@ final class AvatarInfoView: UIView {
             
             changePhotoButton.centerXAnchor.constraint(equalTo: centerXAnchor),
             changePhotoButton.topAnchor.constraint(equalTo: profileAvatarImageView.bottomAnchor, constant: 5),
-            changePhotoButton.leadingAnchor.constraint(equalTo: profileAvatarImageView.leadingAnchor),
-            changePhotoButton.trailingAnchor.constraint(equalTo: profileAvatarImageView.trailingAnchor),
-          
-           profileFirstAndLastNameLabel.topAnchor.constraint(equalTo: changePhotoButton.bottomAnchor, constant: 5),
-           profileFirstAndLastNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: frame.width / 10),
-           profileFirstAndLastNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -frame.width / 10),
+            
+            profileFirstAndLastNameLabel.topAnchor.constraint(equalTo: changePhotoButton.bottomAnchor, constant: 5),
+            profileFirstAndLastNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: frame.width / 10),
+            profileFirstAndLastNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -frame.width / 10),
             
             uploadItemButton.heightAnchor.constraint(equalToConstant: 44),
             uploadItemButton.topAnchor.constraint(equalTo: profileFirstAndLastNameLabel.bottomAnchor, constant: frame.height / 25),
@@ -130,7 +127,7 @@ final class AvatarInfoView: UIView {
     }
     
     @objc private func uploadItemButtonTapped() {
-       
+        
     }
     
     private func showActionSheet() {

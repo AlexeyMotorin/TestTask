@@ -13,7 +13,7 @@ extension LogoutAlertPresenter: LogoutAlertPresenterProtocol {
         let vc = UIAlertController(title: alertModel?.title, message: alertModel?.message, preferredStyle: .alert)
         let yesAction = UIAlertAction(title: alertModel?.buttonText, style: .default, handler: alertModel?.completion)
         yesAction.accessibilityIdentifier = "Yes"
-        let noAction = UIAlertAction(title: "Нет", style: .default)
+        let noAction = UIAlertAction(title: "Нет", style: .cancel)
         vc.addAction(yesAction)
         vc.addAction(noAction)
         delegate?.showLogoutAlert(alertController: vc)

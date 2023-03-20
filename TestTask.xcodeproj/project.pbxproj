@@ -53,6 +53,7 @@
 		5BC9BB8129C7258900EB068C /* LogoutAlertPresenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC9BB8029C7258900EB068C /* LogoutAlertPresenterDelegate.swift */; };
 		5BC9BB8329C7259D00EB068C /* LogoutAlertPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC9BB8229C7259D00EB068C /* LogoutAlertPresenterProtocol.swift */; };
 		5BC9BB8529C725AC00EB068C /* LogoutAlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC9BB8429C725AC00EB068C /* LogoutAlertPresenter.swift */; };
+		5BEBB32B29C84EF800506107 /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEBB32A29C84EF800506107 /* LocationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +123,7 @@
 		5BC9BB8029C7258900EB068C /* LogoutAlertPresenterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutAlertPresenterDelegate.swift; sourceTree = "<group>"; };
 		5BC9BB8229C7259D00EB068C /* LogoutAlertPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutAlertPresenterProtocol.swift; sourceTree = "<group>"; };
 		5BC9BB8429C725AC00EB068C /* LogoutAlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutAlertPresenter.swift; sourceTree = "<group>"; };
+		5BEBB32A29C84EF800506107 /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -351,12 +353,13 @@
 			path = ErrorAlert;
 			sourceTree = "<group>";
 		};
-		5B846A2F29C457580081741B /* Page */ = {
+		5B846A2F29C457580081741B /* PageOne */ = {
 			isa = PBXGroup;
 			children = (
+				5BEBB32929C84EE100506107 /* View */,
 				5B846A3029C457A60081741B /* PageOneViewController.swift */,
 			);
-			path = Page;
+			path = PageOne;
 			sourceTree = "<group>";
 		};
 		5B846A3229C457C30081741B /* LikePage */ = {
@@ -396,7 +399,7 @@
 			isa = PBXGroup;
 			children = (
 				5B846A2D29C4570F0081741B /* TabBarController.swift */,
-				5B846A2F29C457580081741B /* Page */,
+				5B846A2F29C457580081741B /* PageOne */,
 				5B846A3229C457C30081741B /* LikePage */,
 				5B846A3329C458630081741B /* CartPage */,
 				5B846A3A29C458C30081741B /* Comments */,
@@ -459,6 +462,14 @@
 				5BC9BB8429C725AC00EB068C /* LogoutAlertPresenter.swift */,
 			);
 			path = LogoutAlert;
+			sourceTree = "<group>";
+		};
+		5BEBB32929C84EE100506107 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5BEBB32A29C84EF800506107 /* LocationView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -634,6 +645,7 @@
 				5B846A1929C38CF60081741B /* LoginViewPresenter.swift in Sources */,
 				5B846A2729C444650081741B /* Storage.swift in Sources */,
 				5B846A3529C4587D0081741B /* LikeViewController.swift in Sources */,
+				5BEBB32B29C84EF800506107 /* LocationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
