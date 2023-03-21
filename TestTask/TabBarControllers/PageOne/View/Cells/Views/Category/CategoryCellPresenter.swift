@@ -8,13 +8,13 @@ protocol CategoryCellPresenterProtocol: AnyObject {
 final class CategoryCellPresenter: NSObject {
     weak var cellView: CategoryTableViewCellProtocol?
    
-    var categoryCell: [CategoryCellModel] = [
-        CategoryCellModel(nameCategory: "Phones", imageString: "Phones"),
-        CategoryCellModel(nameCategory: "Headphones", imageString: "Headphones"),
-        CategoryCellModel(nameCategory: "Games", imageString: "Games"),
-        CategoryCellModel(nameCategory: "Cars", imageString: "Cars"),
-        CategoryCellModel(nameCategory: "Furniture", imageString: "Furniture"),
-        CategoryCellModel(nameCategory: "Kids", imageString: "Kids"),
+    var categoryCell: [CategoryProductModel] = [
+        CategoryProductModel(nameCategory: "Phones", imageString: "Phones"),
+        CategoryProductModel(nameCategory: "Headphones", imageString: "Headphones"),
+        CategoryProductModel(nameCategory: "Games", imageString: "Games"),
+        CategoryProductModel(nameCategory: "Cars", imageString: "Cars"),
+        CategoryProductModel(nameCategory: "Furniture", imageString: "Furniture"),
+        CategoryProductModel(nameCategory: "Kids", imageString: "Kids"),
     ]
 }
 
@@ -32,14 +32,16 @@ extension CategoryCellPresenter: UICollectionViewDataSource {
         }
         let cellModel = categoryCell[indexPath.row]
         cell.configure(with: cellModel)
-        
-        
-        
+            
         return cell
     }
 }
 
-extension CategoryCellPresenter: UICollectionViewDelegate {}
+extension CategoryCellPresenter: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("Выбрана категория \(categoryCell[indexPath.row].nameCategory)")
+    }
+}
 
 extension CategoryCellPresenter: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

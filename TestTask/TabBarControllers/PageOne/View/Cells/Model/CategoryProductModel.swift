@@ -1,6 +1,6 @@
 import Foundation
 
-struct CategoryCellModel {
+struct CategoryProductModel {
     let nameCategory: String
     let imageString: String
 }

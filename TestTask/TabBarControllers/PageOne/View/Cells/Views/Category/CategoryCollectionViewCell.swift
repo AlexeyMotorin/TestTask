@@ -27,7 +27,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    func configure(with cell: CategoryCellModel) {
+    func configure(with cell: CategoryProductModel) {
         let image = UIImage(named: cell.imageString)
         categoryImageView.image = image
         categoryLabel.text = cell.nameCategory

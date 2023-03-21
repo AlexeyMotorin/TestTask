@@ -8,12 +8,7 @@ protocol PageOneViewProtocol: AnyObject {
 final class PageOneView: UIView {
     var presenter: PageOnePresenterProtocol?
     weak var viewController: PageOneViewControllerProtocol?
-    
-    
-   
-    private var searchBar: UISearchBar!
 
-    
     private var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -37,9 +32,6 @@ final class PageOneView: UIView {
         tableView.delegate = presenter as? PageOnePresenter
         tableView.dataSource = presenter as? PageOnePresenter
         setuView()
-        
-
-    
     }
     
     required init?(coder: NSCoder) {

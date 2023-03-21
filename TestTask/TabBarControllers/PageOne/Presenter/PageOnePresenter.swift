@@ -7,6 +7,13 @@ protocol PageOnePresenterProtocol: AnyObject {
 
 final class PageOnePresenter: NSObject {
     weak var view: PageOneViewProtocol?
+    
+    private enum PageOneTypeCell: CaseIterable {
+        case category
+        case latest
+        case flashSale
+        case brands
+    }
 }
 
 extension PageOnePresenter: PageOnePresenterProtocol {
@@ -17,13 +24,22 @@ extension PageOnePresenter: PageOnePresenterProtocol {
 
 extension PageOnePresenter: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-       100
+        switch indexPath.row {
+        case 0:
+            return UIScreen.main.bounds.height / 8
+        case 1:
+            return UIScreen.main.bounds.height / 4.5
+        case 2:
+            return UIScreen.main.bounds.height / 3.1
+        default:
+            return 0
+        }
     }
 }
 
 extension PageOnePresenter: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        4
+        PageOneTypeCell.allCases.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

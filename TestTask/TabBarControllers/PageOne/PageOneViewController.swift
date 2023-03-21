@@ -41,12 +41,8 @@ class PageOneViewController: UIViewController {
         setupViews()
         setupNavBar()
         
-//        searchVC.accessibilityFrame = CGRect(x: 0, y: 0, width: 100, height: 100)
-//        searchVC.searchBar.frame = CGRect(x: 30, y: 30, width: 100, height: 10)
-//        searchVC.searchBar.frame(forAlignmentRect: CGRect(x: 0, y: 50, width: 100, height: 300))
-//        searchVC.searchBar.alignmentRect(forFrame: CGRect(x: 0, y: 0, width: 100, height: 100))
        
-        
+        print(view.bounds)
         
         navigationItem.searchController = searchVC
         navigationItem.searchController?.searchBar.bounds.origin = CGPoint(x: 0, y: -15)
