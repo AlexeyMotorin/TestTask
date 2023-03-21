@@ -47,7 +47,6 @@ final class ProfileView: UIView {
     }
     
     private func setuView() {
-        backgroundColor = .red
         addSubviews()
         activateConstraints()
     }

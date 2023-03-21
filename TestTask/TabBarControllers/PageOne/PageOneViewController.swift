@@ -1,13 +1,13 @@
-//
-//  PageOneViewController.swift
-//  TestTask
-//
-//  Created by Алексей Моторин on 17.03.2023.
-//
-
 import UIKit
 
+protocol PageOneViewControllerProtocol: AnyObject {}
+
 class PageOneViewController: UIViewController {
+    
+    private var pageOneView: PageOneView!
+    
+    let searchVC = UISearchController(searchResultsController: nil)
+    let searchBar = UISearchBar()
     
     private lazy var menuBarItemButton: UIBarButtonItem = {
         let menuImage = UIImage(named: "Menu")?.withRenderingMode(.alwaysOriginal)
@@ -36,12 +36,33 @@ class PageOneViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        pageOneView = PageOneView(frame: view.bounds, viewController: self)        
+        addScreenView(view: pageOneView)
         setupViews()
         setupNavBar()
+        
+//        searchVC.accessibilityFrame = CGRect(x: 0, y: 0, width: 100, height: 100)
+//        searchVC.searchBar.frame = CGRect(x: 30, y: 30, width: 100, height: 10)
+//        searchVC.searchBar.frame(forAlignmentRect: CGRect(x: 0, y: 50, width: 100, height: 300))
+//        searchVC.searchBar.alignmentRect(forFrame: CGRect(x: 0, y: 0, width: 100, height: 100))
+       
+        
+        
+        navigationItem.searchController = searchVC
+        navigationItem.searchController?.searchBar.bounds.origin = CGPoint(x: 0, y: -15)
+        navigationItem.searchController?.searchBar.searchTextField.font = UIFont(name: "Montserrat-Regular", size: 13)
+        navigationItem.searchController?.searchBar.searchTextField.placeholder = "What are you looking for?"
+        navigationItem.searchController?.searchBar.searchTextField.clipsToBounds = true
+        
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "Search")
+        navigationItem.searchController?.searchBar.searchTextField.rightView = nil
+        navigationItem.searchController?.searchBar.searchTextField.leftView = imageView
     }
     
     private func setupViews() {
         view.backgroundColor = .ttBackgroundColor
+       
     }
     
     private func setupNavBar() {
@@ -74,3 +95,5 @@ class PageOneViewController: UIViewController {
         print("locationButtontapped")
     }
 }
+
+extension PageOneViewController: PageOneViewControllerProtocol {}

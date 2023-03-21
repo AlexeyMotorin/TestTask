@@ -1,6 +1,6 @@
 import UIKit
 
-enum TypeCell {
+enum ProfileTypeCell {
     case tradeStore
     case paymentMethods
     case balance

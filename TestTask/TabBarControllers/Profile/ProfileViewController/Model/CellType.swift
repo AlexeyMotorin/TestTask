@@ -1,7 +1,7 @@
 import Foundation
 
 struct CellType {
-    let typeCell: TypeCell
+    let typeCell: ProfileTypeCell
     let title: String
     var balance: Double? = nil
 }

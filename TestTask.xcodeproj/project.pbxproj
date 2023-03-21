@@ -54,6 +54,15 @@
 		5BC9BB8329C7259D00EB068C /* LogoutAlertPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC9BB8229C7259D00EB068C /* LogoutAlertPresenterProtocol.swift */; };
 		5BC9BB8529C725AC00EB068C /* LogoutAlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC9BB8429C725AC00EB068C /* LogoutAlertPresenter.swift */; };
 		5BEBB32B29C84EF800506107 /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEBB32A29C84EF800506107 /* LocationView.swift */; };
+		5BEBB32D29C873FB00506107 /* PageOneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEBB32C29C873FB00506107 /* PageOneView.swift */; };
+		5BEBB33029C8746500506107 /* PageOnePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEBB32F29C8746500506107 /* PageOnePresenter.swift */; };
+		5BEBB33329C87B0C00506107 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEBB33229C87B0C00506107 /* CategoryTableViewCell.swift */; };
+		5BEBB33629C881EE00506107 /* LatestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEBB33529C881EE00506107 /* LatestTableViewCell.swift */; };
+		5BEBB33A29C89CD500506107 /* FlashSaleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEBB33929C89CD500506107 /* FlashSaleTableViewCell.swift */; };
+		5BEBB33C29C89D7200506107 /* BrandsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEBB33B29C89D7200506107 /* BrandsTableViewCell.swift */; };
+		5BEBB33F29C8E56900506107 /* CategoryCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEBB33E29C8E56900506107 /* CategoryCellModel.swift */; };
+		5BEBB34229C8E66700506107 /* CategoryCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEBB34129C8E66700506107 /* CategoryCellPresenter.swift */; };
+		5BEBB34529C8E9C600506107 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEBB34429C8E9C600506107 /* CategoryCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +133,15 @@
 		5BC9BB8229C7259D00EB068C /* LogoutAlertPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutAlertPresenterProtocol.swift; sourceTree = "<group>"; };
 		5BC9BB8429C725AC00EB068C /* LogoutAlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutAlertPresenter.swift; sourceTree = "<group>"; };
 		5BEBB32A29C84EF800506107 /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
+		5BEBB32C29C873FB00506107 /* PageOneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageOneView.swift; sourceTree = "<group>"; };
+		5BEBB32F29C8746500506107 /* PageOnePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageOnePresenter.swift; sourceTree = "<group>"; };
+		5BEBB33229C87B0C00506107 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
+		5BEBB33529C881EE00506107 /* LatestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestTableViewCell.swift; sourceTree = "<group>"; };
+		5BEBB33929C89CD500506107 /* FlashSaleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashSaleTableViewCell.swift; sourceTree = "<group>"; };
+		5BEBB33B29C89D7200506107 /* BrandsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandsTableViewCell.swift; sourceTree = "<group>"; };
+		5BEBB33E29C8E56900506107 /* CategoryCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCellModel.swift; sourceTree = "<group>"; };
+		5BEBB34129C8E66700506107 /* CategoryCellPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCellPresenter.swift; sourceTree = "<group>"; };
+		5BEBB34429C8E9C600506107 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -356,8 +374,9 @@
 		5B846A2F29C457580081741B /* PageOne */ = {
 			isa = PBXGroup;
 			children = (
-				5BEBB32929C84EE100506107 /* View */,
 				5B846A3029C457A60081741B /* PageOneViewController.swift */,
+				5BEBB32929C84EE100506107 /* View */,
+				5BEBB32E29C8745700506107 /* Presenter */,
 			);
 			path = PageOne;
 			sourceTree = "<group>";
@@ -467,9 +486,65 @@
 		5BEBB32929C84EE100506107 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				5BEBB32A29C84EF800506107 /* LocationView.swift */,
+				5BEBB33129C87AF700506107 /* Cells */,
+				5BEBB32C29C873FB00506107 /* PageOneView.swift */,
+				5BEBB33429C881CB00506107 /* NavBarView */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		5BEBB32E29C8745700506107 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				5BEBB32F29C8746500506107 /* PageOnePresenter.swift */,
+				5BEBB34129C8E66700506107 /* CategoryCellPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		5BEBB33129C87AF700506107 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				5BEBB33D29C8E55300506107 /* Views */,
+				5BEBB34029C8E56E00506107 /* Model */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		5BEBB33429C881CB00506107 /* NavBarView */ = {
+			isa = PBXGroup;
+			children = (
+				5BEBB32A29C84EF800506107 /* LocationView.swift */,
+			);
+			path = NavBarView;
+			sourceTree = "<group>";
+		};
+		5BEBB33D29C8E55300506107 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5BEBB34329C8E9A300506107 /* Category */,
+				5BEBB33529C881EE00506107 /* LatestTableViewCell.swift */,
+				5BEBB33929C89CD500506107 /* FlashSaleTableViewCell.swift */,
+				5BEBB33B29C89D7200506107 /* BrandsTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5BEBB34029C8E56E00506107 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5BEBB33E29C8E56900506107 /* CategoryCellModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5BEBB34329C8E9A300506107 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				5BEBB33229C87B0C00506107 /* CategoryTableViewCell.swift */,
+				5BEBB34429C8E9C600506107 /* CategoryCollectionViewCell.swift */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -619,6 +694,8 @@
 				5B8469B929C243850081741B /* AppDelegate.swift in Sources */,
 				5B846A4A29C5B7BE0081741B /* AvatarInfoView.swift in Sources */,
 				5B846A2E29C4570F0081741B /* TabBarController.swift in Sources */,
+				5BEBB34529C8E9C600506107 /* CategoryCollectionViewCell.swift in Sources */,
+				5BEBB33A29C89CD500506107 /* FlashSaleTableViewCell.swift in Sources */,
 				5B8469F729C24D590081741B /* UIView+extension.swift in Sources */,
 				5B8469BB29C243850081741B /* SceneDelegate.swift in Sources */,
 				5BC9BB8129C7258900EB068C /* LogoutAlertPresenterDelegate.swift in Sources */,
@@ -626,21 +703,28 @@
 				5B8469F129C249D90081741B /* UIColor+extension.swift in Sources */,
 				5B8469EF29C2484D0081741B /* SignPageViewPresenter.swift in Sources */,
 				5B846A3129C457A60081741B /* PageOneViewController.swift in Sources */,
+				5BEBB34229C8E66700506107 /* CategoryCellPresenter.swift in Sources */,
 				5B8469E929C245130081741B /* SignInPageView.swift in Sources */,
 				5B846A0729C3020F0081741B /* TestTaskTextField.swift in Sources */,
 				5BC9BB7429C6FB6700EB068C /* ProfileSettingsCell.swift in Sources */,
+				5BEBB32D29C873FB00506107 /* PageOneView.swift in Sources */,
 				5B846A0E29C375880081741B /* UITextField+extension.swift in Sources */,
 				5BC9BB7F29C7257500EB068C /* LogoutAlertModel.swift in Sources */,
 				5B846A2C29C44CE80081741B /* ErrorAlertPresenter.swift in Sources */,
 				5B846A1729C38B000081741B /* LoginView.swift in Sources */,
+				5BEBB33329C87B0C00506107 /* CategoryTableViewCell.swift in Sources */,
+				5BEBB33C29C89D7200506107 /* BrandsTableViewCell.swift in Sources */,
 				5B846A4229C499140081741B /* Userdefaults+extension.swift in Sources */,
 				5B846A3D29C458E10081741B /* ProfileViewController.swift in Sources */,
 				5B846A0C29C315F80081741B /* TestTaskSignInWithStackView.swift in Sources */,
 				5B8469ED29C247840081741B /* UIViewController+extension.swift in Sources */,
+				5BEBB33029C8746500506107 /* PageOnePresenter.swift in Sources */,
 				5B846A4529C5AC490081741B /* ProfileView.swift in Sources */,
 				5BC9BB8529C725AC00EB068C /* LogoutAlertPresenter.swift in Sources */,
 				5B846A3729C458930081741B /* CartViewController.swift in Sources */,
 				5B846A2929C44CAF0081741B /* ErrorAlert.swift in Sources */,
+				5BEBB33F29C8E56900506107 /* CategoryCellModel.swift in Sources */,
+				5BEBB33629C881EE00506107 /* LatestTableViewCell.swift in Sources */,
 				5B846A4829C5ACC80081741B /* ProfilePresenter.swift in Sources */,
 				5B846A1929C38CF60081741B /* LoginViewPresenter.swift in Sources */,
 				5B846A2729C444650081741B /* Storage.swift in Sources */,

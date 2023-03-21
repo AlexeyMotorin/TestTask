@@ -8,7 +8,7 @@ protocol ProfileViewControllerProtocol: AnyObject {
 
 class ProfileViewController: UIViewController {
 
-    var profileView: ProfileView!
+    private var profileView: ProfileView!
     private var logoutAlertPresenter: LogoutAlertPresenterProtocol?
     
     override func viewDidLoad() {
