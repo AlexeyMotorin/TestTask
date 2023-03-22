@@ -2,6 +2,7 @@ import UIKit
 
 protocol FlashSaleTableViewCellProtocol: AnyObject {
     var presenter: FlashSaleCollectionViewPresenterProtocol? { get set }
+    func requestUpdateCollectionView()
 }
 
 class FlashSaleTableViewCell: UITableViewCell {
@@ -45,6 +46,7 @@ class FlashSaleTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         presenter = FlashSaleCollectionViewPresenter()
         presenter?.view = self
+        presenter?.viewDidLoad()
         collectionView.delegate = presenter as? FlashSaleCollectionViewPresenter
         collectionView.dataSource = presenter as? FlashSaleCollectionViewPresenter
         setupView()
@@ -77,5 +79,9 @@ class FlashSaleTableViewCell: UITableViewCell {
     }
 }
 
-extension FlashSaleTableViewCell: FlashSaleTableViewCellProtocol {}
+extension FlashSaleTableViewCell: FlashSaleTableViewCellProtocol {
+    func requestUpdateCollectionView() {
+        collectionView.reloadData()
+    }
+}
 

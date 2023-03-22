@@ -20,6 +20,7 @@ extension PageOnePresenter: PageOnePresenterProtocol {
     func viewDidLoad() {
         print("PageOnePresenter did load")
         LatestService.shared.fetchLatestProducts()
+        FlashSaleService.shared.fetchLatestProducts()
     }
 }
 

@@ -2,21 +2,36 @@ import UIKit
 
 protocol FlashSaleCollectionViewPresenterProtocol: AnyObject {
     var view: FlashSaleTableViewCellProtocol? { get set }
+    func viewDidLoad()
 }
 
 final class FlashSaleCollectionViewPresenter: NSObject {
     weak var view: FlashSaleTableViewCellProtocol?
-    private var flashSaleProducts: [FlashSaleProductModel] = []
+    private var flashSaleServiceObserver: NSObjectProtocol?
+    private var flashSaleProducts: [ProducCelltModel] = FlashSaleService.shared.flashSaleProducts
 }
 
 extension FlashSaleCollectionViewPresenter: FlashSaleCollectionViewPresenterProtocol {
+    func viewDidLoad() {
+        flashSaleServiceObserver = NotificationCenter.default
+            .addObserver(forName: FlashSaleService.didChangeNotification,
+                         object: nil,
+                         queue: .main,
+                         using: { [weak self] _ in
+                guard let self = self else { return }
+                self.flashSaleProducts = FlashSaleService.shared.flashSaleProducts
+                self.requestUpdateCollectionView()
+            })
+    }
     
+    private func requestUpdateCollectionView() {
+        view?.requestUpdateCollectionView()
+    }
 }
 
 extension FlashSaleCollectionViewPresenter: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-       // latestProducts.count
-        10
+        flashSaleProducts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -25,8 +40,8 @@ extension FlashSaleCollectionViewPresenter: UICollectionViewDataSource {
             fatalError("Unsupported cell")
         }
         
-//        let latestModel = latestProducts[indexPath.row]
-//        cell.configure(with: latestModel)
+        let latestModel = flashSaleProducts[safe: indexPath.row]
+        cell.configure(with: latestModel)
             
         return cell
     

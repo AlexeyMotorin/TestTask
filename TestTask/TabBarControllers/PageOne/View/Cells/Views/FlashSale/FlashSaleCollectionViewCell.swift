@@ -1,4 +1,5 @@
 import UIKit
+import Kingfisher
 
 final class FlashSaleCollectionViewCell: UICollectionViewCell {
     
@@ -7,10 +8,10 @@ final class FlashSaleCollectionViewCell: UICollectionViewCell {
     private lazy var productImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.backgroundColor = .black
+        imageView.backgroundColor = .clear
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 8
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
     
@@ -101,9 +102,8 @@ final class FlashSaleCollectionViewCell: UICollectionViewCell {
         priceLabel.text = nil
     }
     
-    func configure(with model: FlashSaleProductModel?) {
-        // TODO: скачать картинку
-        productImageView.image
+    func configure(with model: ProducCelltModel?) {
+        downloadImage(at: model?.imageURL)
         salerImageView.image = UIImage(named: model?.sellerImageURL ?? "Error")
         
         categoryLabel.text = model?.category
@@ -159,6 +159,13 @@ final class FlashSaleCollectionViewCell: UICollectionViewCell {
             salerImageView.widthAnchor.constraint(equalToConstant: contentView.frame.width / 7.25),
             salerImageView.heightAnchor.constraint(equalToConstant: contentView.frame.width / 7.25)
         ])
+    }
+    
+    private func downloadImage(at url: String?) {
+        guard
+            let urlString = url,
+            let url = URL(string: urlString) else { return }
+        productImageView.kf.setImage(with: url)
     }
 
 

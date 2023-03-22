@@ -1,12 +1,12 @@
 import Foundation
 
-final class LatestService {
+final class FlashSaleService {
     // MARK: - Singleton
-    static let shared = LatestService()
+    static let shared = FlashSaleService()
     private init() {}
     
     // MARK: - Static properties
-    static let didChangeNotification = Notification.Name(rawValue: "LatestServiceDidChange")
+    static let didChangeNotification = Notification.Name(rawValue: "FlashSaleServiceDidChange")
    
     // MARK: - Private enum
     private enum HttpMethods: String {
@@ -18,28 +18,38 @@ final class LatestService {
     
     //указатель на активную задачу, если задач нет, значение = nil. Значение присваивается до task.resume(), при успешном выполнении обнуляется
     private var task: URLSessionTask?
-    private(set) var latests: [LatestProductModel] = []
+    private(set) var flashSaleProducts: [ProducCelltModel] = []
+    
+    private var flashSaleRequest: URLRequest? {
+        let urlString = "https://run.mocky.io"
+        guard let url = URL(string: urlString) else { return nil }
+        let request = URLRequest.makeHTTPRequest(
+            path: "/v3" + "/a9ceeb6e-416d-4352-bde6-2203416576ac",
+            httpMethod: HttpMethods.get.rawValue,
+            baseURL: url)
+        return request
+    }
     
     // MARK: - Public properties
     func fetchLatestProducts() {
         assert(Thread.isMainThread)
         task?.cancel()
         
-        guard let request = latestRequest else { return }
+        guard let request = flashSaleRequest else { return }
         
-        let task = urlSession.objectTask(for: request) { [weak self] (result: Result<LatestModel, Error>) in
+        let task = urlSession.objectTask(for: request) { [weak self] (result: Result<FlashSaleModel, Error>) in
             guard let self = self else { return }
             DispatchQueue.main.async {
                 switch result {
-                case .success(let latestModel):
-                    latestModel.latest.forEach { result in
+                case .success(let flashSaleModel):
+                    flashSaleModel.flashSale.forEach { result in
                         let latestProduct = self.getProduct(from: result)
-                        self.latests.append(latestProduct)
+                        self.flashSaleProducts.append(latestProduct)
                     }
                     NotificationCenter.default.post(
-                        name: LatestService.didChangeNotification,
+                        name: FlashSaleService.didChangeNotification,
                         object: self,
-                        userInfo: ["latests" : self.latests])
+                        userInfo: ["flashSaleProducts" : self.flashSaleProducts])
                 case .failure(let error):
                     print(error)
                 }
@@ -53,25 +63,15 @@ final class LatestService {
     
     
     // MARK: - Private methods
-    private var latestRequest: URLRequest? {
-        let urlString = "https://run.mocky.io"
-        guard let url = URL(string: urlString) else { return nil}
-        
-        let request = URLRequest.makeHTTPRequest(
-            path: "/v3" + "/cc0071a1-f06e-48fa-9e90-b1c2a61eaca7",
-            httpMethod: HttpMethods.get.rawValue,
-            baseURL: url)
-        return request
-    }
-    
-    private func getProduct(from result: Latest) -> LatestProductModel {
-        let latest = LatestProductModel(
+    private func getProduct(from result: FlashSaleProduct) -> ProducCelltModel {
+        let productCell = ProducCelltModel(
             category: result.category,
             name: result.name,
-            price: result.price,
+            price: Int(result.price),
+            discount: result.discount,
             imageURL: result.imageURL
         )
-        return latest
+        return productCell
     }
 }
 

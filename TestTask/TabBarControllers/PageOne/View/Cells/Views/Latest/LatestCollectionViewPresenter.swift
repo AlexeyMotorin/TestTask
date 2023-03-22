@@ -7,27 +7,24 @@ protocol LatestCollectionViewPresenterProtocol: AnyObject {
 
 final class LatestCollectionViewPresenter: NSObject {
     weak var view: LatestTableViewCellProtocol?
-    private var latestProducts: [LatestProductModel] = []
+    private var latestProducts: [ProducCelltModel] = LatestService.shared.latests
     private var latestServiceObserver: NSObjectProtocol?
-    
-    
 }
 
 extension LatestCollectionViewPresenter: LatestCollectionViewPresenterProtocol {
     func viewDidLoad() {
-        print("LatestCollectionViewPresenter")
         latestServiceObserver = NotificationCenter.default
             .addObserver(forName: LatestService.didChangeNotification,
                          object: nil,
                          queue: .main,
                          using: { [weak self] _ in
                 guard let self = self else { return }
+                self.latestProducts = LatestService.shared.latests
                 self.requestUpdateCollectionView()
             })
     }
     
     private func requestUpdateCollectionView() {
-        latestProducts = LatestService.shared.latests
         view?.updateCollectionView()
     }
 }

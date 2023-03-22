@@ -5,7 +5,6 @@ protocol LatestTableViewCellProtocol: AnyObject {
     func updateCollectionView()
 }
 
-
 class LatestTableViewCell: UITableViewCell {
     
     static let reuseIdentifier = "LatestTableViewCell"
@@ -83,8 +82,6 @@ class LatestTableViewCell: UITableViewCell {
 
 extension LatestTableViewCell: LatestTableViewCellProtocol {
     func updateCollectionView() {
-        collectionView.performBatchUpdates {
-            collectionView.reloadData()
-        }
+        collectionView.reloadData()
     }
 }
