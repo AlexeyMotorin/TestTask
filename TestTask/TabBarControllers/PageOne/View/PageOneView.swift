@@ -3,7 +3,6 @@ import UIKit
 protocol PageOneViewProtocol: AnyObject {
     var presenter: PageOnePresenterProtocol? { get set }
     var viewController: PageOneViewControllerProtocol? { get set }
-    
     func showTableView()
 }
 
@@ -27,7 +26,8 @@ final class PageOneView: UIView {
         tableView.register(CategoryTableViewCell.self, forCellReuseIdentifier: CategoryTableViewCell.reuseIdentifier)
         tableView.register(LatestTableViewCell.self, forCellReuseIdentifier: LatestTableViewCell.reuseIdentifier)
         tableView.register(FlashSaleTableViewCell.self, forCellReuseIdentifier: FlashSaleTableViewCell.reuseIdentifier)
-        tableView.register(BrandsTableViewCell.self, forCellReuseIdentifier: BrandsTableViewCell.reuseIdentifier)        
+        tableView.register(BrandsTableViewCell.self, forCellReuseIdentifier: BrandsTableViewCell.reuseIdentifier)
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: frame.height / 20, right: 0)
         return tableView
     }()
     
@@ -35,12 +35,8 @@ final class PageOneView: UIView {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
         self.viewController = viewController
-        presenter = PageOnePresenter()
-        presenter?.view = self
-        presenter?.viewDidLoad()
-        spinner.startAnimating()
-        tableView.delegate = presenter as? PageOnePresenter
-        tableView.dataSource = presenter as? PageOnePresenter
+        setupPresenter()
+        setupTableView()
         setuView()
     }
     
@@ -48,10 +44,22 @@ final class PageOneView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private func setupPresenter() {
+        presenter = PageOnePresenter()
+        presenter?.view = self
+        presenter?.viewDidLoad()
+    }
+    
     private func setuView() {
         backgroundColor = .ttBackgroundColor
+        spinner.startAnimating()
         addSubviews()
         activateConstraints()
+    }
+    
+    private func setupTableView() {
+        tableView.delegate = presenter as? PageOnePresenter
+        tableView.dataSource = presenter as? PageOnePresenter
     }
     
     private func addSubviews() {

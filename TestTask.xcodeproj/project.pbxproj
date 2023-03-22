@@ -76,6 +76,8 @@
 		5BEBB36529CA47BA00506107 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 5BEBB36429CA47BA00506107 /* Kingfisher */; };
 		5BEBB36A29CAD03800506107 /* FlashSaleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEBB36929CAD03800506107 /* FlashSaleModel.swift */; };
 		5BEBB36C29CAD2B600506107 /* FlashSaleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEBB36B29CAD2B600506107 /* FlashSaleService.swift */; };
+		5BEBB36E29CADE4400506107 /* BrandsCollectionViewCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEBB36D29CADE4400506107 /* BrandsCollectionViewCellPresenter.swift */; };
+		5BEBB37029CADFCE00506107 /* BrandCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEBB36F29CADFCE00506107 /* BrandCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -167,6 +169,8 @@
 		5BEBB36129CA460800506107 /* Collection+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+extension.swift"; sourceTree = "<group>"; };
 		5BEBB36929CAD03800506107 /* FlashSaleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashSaleModel.swift; sourceTree = "<group>"; };
 		5BEBB36B29CAD2B600506107 /* FlashSaleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashSaleService.swift; sourceTree = "<group>"; };
+		5BEBB36D29CADE4400506107 /* BrandsCollectionViewCellPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandsCollectionViewCellPresenter.swift; sourceTree = "<group>"; };
+		5BEBB36F29CADFCE00506107 /* BrandCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -602,6 +606,8 @@
 			isa = PBXGroup;
 			children = (
 				5BEBB33B29C89D7200506107 /* BrandsTableViewCell.swift */,
+				5BEBB36F29CADFCE00506107 /* BrandCollectionViewCell.swift */,
+				5BEBB36D29CADE4400506107 /* BrandsCollectionViewCellPresenter.swift */,
 			);
 			path = Brands;
 			sourceTree = "<group>";
@@ -817,6 +823,7 @@
 				5BEBB36029CA409700506107 /* LatestServices.swift in Sources */,
 				5B846A4A29C5B7BE0081741B /* AvatarInfoView.swift in Sources */,
 				5BEBB35229CA22F600506107 /* FlashSaleCollectionViewPresenter.swift in Sources */,
+				5BEBB36E29CADE4400506107 /* BrandsCollectionViewCellPresenter.swift in Sources */,
 				5B846A2E29C4570F0081741B /* TabBarController.swift in Sources */,
 				5BEBB34529C8E9C600506107 /* CategoryCollectionViewCell.swift in Sources */,
 				5BEBB36C29CAD2B600506107 /* FlashSaleService.swift in Sources */,
@@ -835,6 +842,7 @@
 				5B846A0729C3020F0081741B /* TestTaskTextField.swift in Sources */,
 				5BC9BB7429C6FB6700EB068C /* ProfileSettingsCell.swift in Sources */,
 				5BEBB36229CA460800506107 /* Collection+extension.swift in Sources */,
+				5BEBB37029CADFCE00506107 /* BrandCollectionViewCell.swift in Sources */,
 				5BEBB32D29C873FB00506107 /* PageOneView.swift in Sources */,
 				5BEBB35729CA3F5D00506107 /* URLSession+extension.swift in Sources */,
 				5B846A0E29C375880081741B /* UITextField+extension.swift in Sources */,

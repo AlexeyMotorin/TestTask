@@ -59,7 +59,7 @@ extension PageOnePresenter: UITableViewDelegate {
         switch indexPath.row {
         case 0:
             return UIScreen.main.bounds.height / 8
-        case 1:
+        case 1, 3:
             return UIScreen.main.bounds.height / 4.5
         case 2:
             return UIScreen.main.bounds.height / 3.1

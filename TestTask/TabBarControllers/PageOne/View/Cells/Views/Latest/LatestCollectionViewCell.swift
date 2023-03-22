@@ -8,7 +8,7 @@ final class LatestCollectionViewCell: UICollectionViewCell {
     private lazy var productImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.backgroundColor = .black
+        imageView.backgroundColor = .clear
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 8
         imageView.contentMode = .scaleAspectFill
