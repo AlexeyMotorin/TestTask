@@ -67,7 +67,7 @@ final class FlashSaleService {
         let productCell = ProducCelltModel(
             category: result.category,
             name: result.name,
-            price: Int(result.price),
+            price: result.price,
             discount: result.discount,
             imageURL: result.imageURL
         )

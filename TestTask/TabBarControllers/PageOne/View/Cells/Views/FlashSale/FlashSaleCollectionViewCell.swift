@@ -15,7 +15,7 @@ final class FlashSaleCollectionViewCell: UICollectionViewCell {
         return imageView
     }()
     
-    private lazy var salerImageView: UIImageView = {
+    private lazy var sellerImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.backgroundColor = .clear
@@ -104,7 +104,7 @@ final class FlashSaleCollectionViewCell: UICollectionViewCell {
     
     func configure(with model: ProducCelltModel?) {
         downloadImage(at: model?.imageURL)
-        salerImageView.image = UIImage(named: model?.sellerImageURL ?? "Error")
+        sellerImageView.image = UIImage(named: model?.sellerImageURL ?? "Error")
         
         categoryLabel.text = model?.category
         nameLabel.text = model?.name
@@ -118,7 +118,7 @@ final class FlashSaleCollectionViewCell: UICollectionViewCell {
         contentView.layer.cornerRadius = 8
         contentView.layer.masksToBounds = false
         
-        contentView.addSubviews(productImageView, addProductButton, categoryLabel, nameLabel, priceLabel, likeProductButton, saleLabel, salerImageView)
+        contentView.addSubviews(productImageView, addProductButton, categoryLabel, nameLabel, priceLabel, likeProductButton, saleLabel, sellerImageView)
         
         NSLayoutConstraint.activate([
             productImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
@@ -132,9 +132,9 @@ final class FlashSaleCollectionViewCell: UICollectionViewCell {
             addProductButton.heightAnchor.constraint(equalToConstant: 35),
             
             likeProductButton.centerYAnchor.constraint(equalTo: addProductButton.centerYAnchor),
-           likeProductButton.rightAnchor.constraint(equalTo: addProductButton.leftAnchor, constant: -5),
-           likeProductButton.widthAnchor.constraint(equalToConstant: 28),
-           likeProductButton.heightAnchor.constraint(equalToConstant: 28),
+            likeProductButton.rightAnchor.constraint(equalTo: addProductButton.leftAnchor, constant: -5),
+            likeProductButton.widthAnchor.constraint(equalToConstant: 28),
+            likeProductButton.heightAnchor.constraint(equalToConstant: 28),
             
             categoryLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: contentView.bounds.height / 1.7),
             categoryLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10),
@@ -154,10 +154,10 @@ final class FlashSaleCollectionViewCell: UICollectionViewCell {
             saleLabel.widthAnchor.constraint(equalToConstant: contentView.frame.width / 3.5),
             saleLabel.heightAnchor.constraint(equalToConstant: contentView.frame.height / 12.7),
             
-            salerImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            salerImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10),
-            salerImageView.widthAnchor.constraint(equalToConstant: contentView.frame.width / 7.25),
-            salerImageView.heightAnchor.constraint(equalToConstant: contentView.frame.width / 7.25)
+            sellerImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+            sellerImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10),
+            sellerImageView.widthAnchor.constraint(equalToConstant: contentView.frame.width / 7.25),
+            sellerImageView.heightAnchor.constraint(equalToConstant: contentView.frame.width / 7.25)
         ])
     }
     
@@ -167,8 +167,8 @@ final class FlashSaleCollectionViewCell: UICollectionViewCell {
             let url = URL(string: urlString) else { return }
         productImageView.kf.setImage(with: url)
     }
-
-
+    
+    
     @objc private func addProductTapped() {
         print("добавили товар")
     }
@@ -177,5 +177,5 @@ final class FlashSaleCollectionViewCell: UICollectionViewCell {
         print("добавили в избранное")
     }
     
-   
+    
 }

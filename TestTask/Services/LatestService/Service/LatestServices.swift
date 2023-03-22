@@ -51,7 +51,6 @@ final class LatestService {
         task.resume()
     }
     
-    
     // MARK: - Private methods
     private var latestRequest: URLRequest? {
         let urlString = "https://run.mocky.io"

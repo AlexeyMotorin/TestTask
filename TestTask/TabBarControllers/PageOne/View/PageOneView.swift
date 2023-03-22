@@ -3,18 +3,27 @@ import UIKit
 protocol PageOneViewProtocol: AnyObject {
     var presenter: PageOnePresenterProtocol? { get set }
     var viewController: PageOneViewControllerProtocol? { get set }
+    
+    func showTableView()
 }
 
 final class PageOneView: UIView {
     var presenter: PageOnePresenterProtocol?
     weak var viewController: PageOneViewControllerProtocol?
+    
+    private lazy var spinner: UIActivityIndicatorView = {
+        let spinner = UIActivityIndicatorView(style: .large)
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        return spinner
+    }()
 
-    private var tableView: UITableView = {
+    private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         tableView.backgroundColor = .clear
-       
+        tableView.isHidden = true
+        tableView.alpha = 0
         tableView.register(CategoryTableViewCell.self, forCellReuseIdentifier: CategoryTableViewCell.reuseIdentifier)
         tableView.register(LatestTableViewCell.self, forCellReuseIdentifier: LatestTableViewCell.reuseIdentifier)
         tableView.register(FlashSaleTableViewCell.self, forCellReuseIdentifier: FlashSaleTableViewCell.reuseIdentifier)
@@ -29,6 +38,7 @@ final class PageOneView: UIView {
         presenter = PageOnePresenter()
         presenter?.view = self
         presenter?.viewDidLoad()
+        spinner.startAnimating()
         tableView.delegate = presenter as? PageOnePresenter
         tableView.dataSource = presenter as? PageOnePresenter
         setuView()
@@ -45,11 +55,15 @@ final class PageOneView: UIView {
     }
     
     private func addSubviews() {
-        addSubview(tableView)
+        addSubviews(spinner, tableView)
     }
     
     private func activateConstraints() {
         NSLayoutConstraint.activate([
+            
+            spinner.centerXAnchor.constraint(equalTo: centerXAnchor),
+            spinner.centerYAnchor.constraint(equalTo: centerYAnchor),
+            
             tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 5),
             tableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             tableView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
@@ -58,4 +72,12 @@ final class PageOneView: UIView {
     }
 }
 
-extension PageOneView: PageOneViewProtocol {}
+extension PageOneView: PageOneViewProtocol {
+    func showTableView() {
+        spinner.stopAnimating()
+        tableView.isHidden = false
+        UIView.animate(withDuration: 0.4) {
+            self.tableView.alpha = 1
+        }
+    }
+}

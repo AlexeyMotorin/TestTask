@@ -8,7 +8,7 @@ struct LatestModel: Codable {
 // MARK: - Latest
 struct Latest: Codable {
     let category, name: String
-    let price: Int
+    let price: Double
     let imageURL: String
 
     enum CodingKeys: String, CodingKey {

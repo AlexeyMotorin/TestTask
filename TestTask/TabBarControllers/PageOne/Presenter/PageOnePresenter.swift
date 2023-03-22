@@ -7,6 +7,16 @@ protocol PageOnePresenterProtocol: AnyObject {
 
 final class PageOnePresenter: NSObject {
     weak var view: PageOneViewProtocol?
+    private var flashSaleServiceObserver: NSObjectProtocol?
+    private var latestServiceObserver: NSObjectProtocol?
+    
+    private var isProductDownLoad = (latest: false, sale: false) {
+        didSet {
+            if isProductDownLoad == (true, true) {
+                view?.showTableView()
+            }
+        }
+    }
     
     private enum PageOneTypeCell: CaseIterable {
         case category
@@ -18,9 +28,29 @@ final class PageOnePresenter: NSObject {
 
 extension PageOnePresenter: PageOnePresenterProtocol {
     func viewDidLoad() {
-        print("PageOnePresenter did load")
+        registerObserver()
         LatestService.shared.fetchLatestProducts()
         FlashSaleService.shared.fetchLatestProducts()
+    }
+    
+    private func registerObserver()  {
+        flashSaleServiceObserver = NotificationCenter.default
+            .addObserver(forName: FlashSaleService.didChangeNotification,
+                         object: nil,
+                         queue: .main,
+                         using: { [weak self] _ in
+                guard let self = self else { return }
+                self.isProductDownLoad.sale = true
+            })
+        
+        latestServiceObserver = NotificationCenter.default
+            .addObserver(forName: LatestService.didChangeNotification,
+                         object: nil,
+                         queue: .main,
+                         using: { [weak self] _ in
+                guard let self = self else { return }
+                self.isProductDownLoad.latest = true
+            })
     }
 }
 
@@ -45,7 +75,6 @@ extension PageOnePresenter: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         var cell = UITableViewCell()
         
         switch indexPath.row {
@@ -60,7 +89,6 @@ extension PageOnePresenter: UITableViewDataSource {
         default:
            break
         }
-        
         return cell
     }
         
@@ -71,7 +99,6 @@ extension PageOnePresenter: UITableViewDataSource {
         cell.selectionStyle = .none
         return cell
     }
-    
     
     private func creatCategoryCell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CategoryTableViewCell.reuseIdentifier, for: indexPath) as? CategoryTableViewCell else {
@@ -96,5 +123,4 @@ extension PageOnePresenter: UITableViewDataSource {
         cell.selectionStyle = .none
         return cell
     }
-    
 }
