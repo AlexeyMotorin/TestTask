@@ -8,7 +8,7 @@ protocol FlashSaleCollectionViewPresenterProtocol: AnyObject {
 final class FlashSaleCollectionViewPresenter: NSObject {
     weak var view: FlashSaleTableViewCellProtocol?
     private var flashSaleServiceObserver: NSObjectProtocol?
-    private var flashSaleProducts: [ProducCelltModel] = FlashSaleService.shared.flashSaleProducts
+    private var flashSaleProducts: [ProductCellModel] = FlashSaleService.shared.flashSaleProducts
 }
 
 extension FlashSaleCollectionViewPresenter: FlashSaleCollectionViewPresenterProtocol {
@@ -30,36 +30,38 @@ extension FlashSaleCollectionViewPresenter: FlashSaleCollectionViewPresenterProt
 }
 
 extension FlashSaleCollectionViewPresenter: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        numberOfItemsInSection section: Int
+    ) -> Int {
         flashSaleProducts.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FlashSaleCollectionViewCell.reuseIdentifier, for: indexPath) as? FlashSaleCollectionViewCell else {
             fatalError("Unsupported cell")
         }
-        
         let latestModel = flashSaleProducts[safe: indexPath.row]
         cell.configure(with: latestModel)
-            
         return cell
-    
     }
 }
 
 extension FlashSaleCollectionViewPresenter: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {}
 }
 
 extension FlashSaleCollectionViewPresenter: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-       
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
         let bounds = UIScreen.main.bounds
         let width = (bounds.width - 30) / 2
-    
         return CGSize(width: width, height: UIScreen.main.bounds.height / 3.7 )
     }
 }

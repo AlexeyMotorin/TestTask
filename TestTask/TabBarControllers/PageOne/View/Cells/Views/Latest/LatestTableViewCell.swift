@@ -5,7 +5,7 @@ protocol LatestTableViewCellProtocol: AnyObject {
     func updateCollectionView()
 }
 
-class LatestTableViewCell: UITableViewCell {
+final class LatestTableViewCell: UITableViewCell {
     
     static let reuseIdentifier = "LatestTableViewCell"
     
@@ -25,7 +25,7 @@ class LatestTableViewCell: UITableViewCell {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(.ttGray, for: .normal)
         button.setTitle("View all", for: .normal)
-        button.addTarget(self, action: #selector(viewAllButtenTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(viewAllButtonTapped), for: .touchUpInside)
         button.titleLabel?.font = UIFont(name: "Montserrat", size: 10)
         return button
     }()
@@ -45,16 +45,24 @@ class LatestTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        presenter = LatestCollectionViewPresenter()
-        presenter?.view = self
-        presenter?.viewDidLoad()
-        collectionView.delegate = presenter as? LatestCollectionViewPresenter
-        collectionView.dataSource = presenter as? LatestCollectionViewPresenter
+        setupPresenter()
+        setupCollectionView()
         setupView()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setupPresenter() {
+        presenter = LatestCollectionViewPresenter()
+        presenter?.view = self
+        presenter?.viewDidLoad()
+    }
+    
+    private func setupCollectionView() {
+        collectionView.delegate = presenter as? LatestCollectionViewPresenter
+        collectionView.dataSource = presenter as? LatestCollectionViewPresenter
     }
     
     private func setupView() {
@@ -75,7 +83,7 @@ class LatestTableViewCell: UITableViewCell {
         ])
     }
     
-    @objc private func viewAllButtenTapped() {
+    @objc private func viewAllButtonTapped() {
         print("View all tapped")
     }
 }

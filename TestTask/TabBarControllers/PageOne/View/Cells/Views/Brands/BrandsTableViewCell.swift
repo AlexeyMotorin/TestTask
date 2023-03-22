@@ -2,7 +2,6 @@ import UIKit
 
 protocol BrandsTableViewCellProtocol: AnyObject {
     var presenter: BrandsCollectionViewCellPresenterProtocol? { get set }
-  
 }
 
 class BrandsTableViewCell: UITableViewCell {
@@ -25,7 +24,7 @@ class BrandsTableViewCell: UITableViewCell {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(.ttGray, for: .normal)
         button.setTitle("View all", for: .normal)
-        button.addTarget(self, action: #selector(viewAllButtenTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(viewAllButtonTapped), for: .touchUpInside)
         button.titleLabel?.font = UIFont(name: "Montserrat", size: 10)
         return button
     }()
@@ -44,24 +43,36 @@ class BrandsTableViewCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setupPresenter()
+        setupCollectionView()
+        setupView()
+    }
+    
+    private func setupPresenter() {
         presenter = BrandsCollectionViewCellPresenter()
         presenter?.view = self
         presenter?.viewDidLoad()
+    }
+    
+    private func setupCollectionView() {
         collectionView.delegate = presenter as? BrandsCollectionViewCellPresenter
         collectionView.dataSource = presenter as? BrandsCollectionViewCellPresenter
-        setupView()
     }
     
     private func setupView() {
         backgroundColor = .clear
-        contentView.addSubviews(brandLabel, viewAllButton, collectionView)
+        contentView.addSubviews(
+            brandLabel,
+            viewAllButton,
+            collectionView
+        )
         
         NSLayoutConstraint.activate([
             brandLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor),
-            brandLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+            brandLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
             
             viewAllButton.rightAnchor.constraint(equalTo: contentView.rightAnchor),
-            viewAllButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+            viewAllButton.centerYAnchor.constraint(equalTo: brandLabel.centerYAnchor),
             
             collectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
@@ -74,7 +85,7 @@ class BrandsTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    @objc private func viewAllButtenTapped() {
+    @objc private func viewAllButtonTapped() {
         print("View all tapped")
     }
 }

@@ -7,7 +7,7 @@ protocol ProfileViewControllerProtocol: AnyObject {
 }
 
 class ProfileViewController: UIViewController {
-
+    
     private var profileView: ProfileView!
     private var logoutAlertPresenter: LogoutAlertPresenterProtocol?
     

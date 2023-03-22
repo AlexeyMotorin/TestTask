@@ -2,12 +2,11 @@ import UIKit
 
 protocol PageOneViewControllerProtocol: AnyObject {}
 
-class PageOneViewController: UIViewController {
-    
-    private var pageOneView: PageOneView!
+final class PageOneViewController: UIViewController {
     
     let searchVC = UISearchController(searchResultsController: nil)
-    let searchBar = UISearchBar()
+    
+    private var pageOneView: PageOneView!
     
     private lazy var menuBarItemButton: UIBarButtonItem = {
         let menuImage = UIImage(named: "Menu")?.withRenderingMode(.alwaysOriginal)
@@ -40,25 +39,11 @@ class PageOneViewController: UIViewController {
         addScreenView(view: pageOneView)
         setupViews()
         setupNavBar()
-        
-       
-        print(view.bounds)
-        
-        navigationItem.searchController = searchVC
-        navigationItem.searchController?.searchBar.bounds.origin = CGPoint(x: 0, y: -15)
-        navigationItem.searchController?.searchBar.searchTextField.font = UIFont(name: "Montserrat-Regular", size: 13)
-        navigationItem.searchController?.searchBar.searchTextField.placeholder = "What are you looking for?"
-        navigationItem.searchController?.searchBar.searchTextField.clipsToBounds = true
-        
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "Search")
-        navigationItem.searchController?.searchBar.searchTextField.rightView = nil
-        navigationItem.searchController?.searchBar.searchTextField.leftView = imageView
+        setupSearchController()
     }
     
     private func setupViews() {
         view.backgroundColor = .ttBackgroundColor
-       
     }
     
     private func setupNavBar() {
@@ -69,17 +54,35 @@ class PageOneViewController: UIViewController {
             let imageString = AccountStorage.shared.profile?.profileImage,
             let image = UIImage(named: imageString) else { return }
         let locationView = LocationView(
-                frame: CGRect(x: 0,
-                              y: 0,
-                              width: view.frame.size.width / 5,
-                              height: navigationController?.navigationBar.bounds.height ?? 0),
+                frame: CGRect(
+                    x: 0,
+                    y: 0,
+                    width: view.frame.size.width / 5,
+                    height: navigationController?.navigationBar.bounds.height ?? 0
+                ),
                 image: image)
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(locationButtontapped))
+        let tapGesture = UITapGestureRecognizer(
+            target: self,
+            action: #selector(locationButtontapped)
+        )
         locationView.addGestureRecognizer(tapGesture)
         
         let rightBarButtonItem = UIBarButtonItem(customView: locationView)
         navigationItem.rightBarButtonItem = rightBarButtonItem
+    }
+    
+    private func setupSearchController() {
+        navigationItem.searchController = searchVC
+        navigationItem.searchController?.searchBar.bounds.origin = CGPoint(x: 0, y: -15)
+        navigationItem.searchController?.searchBar.searchTextField.font = UIFont(name: "Montserrat-Regular", size: 13)
+        navigationItem.searchController?.searchBar.searchTextField.placeholder = "What are you looking for?"
+        navigationItem.searchController?.searchBar.searchTextField.clipsToBounds = true
+        
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "Search")
+        navigationItem.searchController?.searchBar.searchTextField.rightView = nil
+        navigationItem.searchController?.searchBar.searchTextField.leftView = imageView
     }
     
     @objc private func menuBarItemButtonTapped() {

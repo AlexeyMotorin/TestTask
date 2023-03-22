@@ -29,24 +29,32 @@ final class ProfileView: UIView {
         tableView.register(ProfileSettingsCell.self, forCellReuseIdentifier: ProfileSettingsCell.reuseIdentifier)
         return tableView
     }()
-        
+    
     init(frame: CGRect, viewController: ProfileViewControllerProtocol) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
         self.viewController = viewController
-        presenter = ProfilePresenter()
-        presenter?.view = self
-        presenter?.viewDidLoad()
-        tableView.delegate = presenter as? ProfilePresenter
-        tableView.dataSource = presenter as? ProfilePresenter
-        setuView()
+        setupPresenter()
+        setupTableView()
+        setupView()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setuView() {
+    private func setupPresenter() {
+        presenter = ProfilePresenter()
+        presenter?.view = self
+        presenter?.viewDidLoad()
+    }
+    
+    private func setupTableView() {
+        tableView.delegate = presenter as? ProfilePresenter
+        tableView.dataSource = presenter as? ProfilePresenter
+    }
+    
+    private func setupView() {
         addSubviews()
         activateConstraints()
     }
@@ -67,7 +75,7 @@ final class ProfileView: UIView {
             tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: bottomAnchor)
-            ])
+        ])
     }
     
     @objc private func didBackButtonTapped() {

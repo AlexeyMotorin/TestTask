@@ -69,11 +69,10 @@ final class LatestCollectionViewCell: UICollectionViewCell {
         priceLabel.text = nil
     }
     
-    func configure(with model: ProducCelltModel?) {
+    func configure(with model: ProductCellModel?) {
         downloadImage(at: model?.imageURL)
         categoryLabel.text = model?.category
         nameLabel.text = model?.name
-        
         priceLabel.text = "$ \(model?.price ?? 0)"
     }
     
@@ -82,7 +81,13 @@ final class LatestCollectionViewCell: UICollectionViewCell {
         contentView.layer.cornerRadius = 8
         contentView.layer.masksToBounds = false
         
-        contentView.addSubviews(productImageView, addProductButton, categoryLabel, nameLabel, priceLabel)
+        contentView.addSubviews(
+            productImageView,
+            addProductButton,
+            categoryLabel,
+            nameLabel,
+            priceLabel
+        )
         
         NSLayoutConstraint.activate([
             productImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
@@ -108,8 +113,7 @@ final class LatestCollectionViewCell: UICollectionViewCell {
             priceLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5)
         ])
     }
-
-
+    
     @objc private func addProductTapped() {
         print("добавили товар")
     }
@@ -120,5 +124,4 @@ final class LatestCollectionViewCell: UICollectionViewCell {
             let url = URL(string: urlString) else { return }
         productImageView.kf.setImage(with: url)
     }
-    
 }

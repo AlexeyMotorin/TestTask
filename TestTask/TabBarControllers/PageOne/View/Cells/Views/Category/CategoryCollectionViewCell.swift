@@ -1,13 +1,7 @@
-//
-//  CategoryCollectionViewCell.swift
-//  TestTask
-//
-//  Created by Алексей Моторин on 20.03.2023.
-//
 
 import UIKit
 
-class CategoryCollectionViewCell: UICollectionViewCell {
+final class CategoryCollectionViewCell: UICollectionViewCell {
     static let reuseIdentifier = "CategoryCollectionViewCell"
     
     private lazy var categoryImageView: UIImageView = {
@@ -27,27 +21,10 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    func configure(with cell: CategoryProductModel) {
-        let image = UIImage(named: cell.imageString)
-        categoryImageView.image = image
-        categoryLabel.text = cell.nameCategory
-    }
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        backgroundColor = .clear
-        contentView.backgroundColor = .clear
-        
-        addSubviews(categoryImageView, categoryLabel)
-        
-        NSLayoutConstraint.activate([
-            categoryImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            categoryImageView.topAnchor.constraint(equalTo: topAnchor, constant: 5),
-                
-            categoryLabel.topAnchor.constraint(equalTo: categoryImageView.bottomAnchor, constant: 10),
-            categoryLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
-        ])
+        setupView()
+        activateConstraint()
     }
     
     required init?(coder: NSCoder) {
@@ -57,5 +34,28 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     override func prepareForReuse() {
         categoryImageView.image = nil
         categoryLabel.text = nil
+    }
+    
+    func configure(with cell: CategoryProductModel) {
+        let image = UIImage(named: cell.imageString)
+        categoryImageView.image = image
+        categoryLabel.text = cell.nameCategory
+    }
+    
+    private func setupView() {
+        backgroundColor = .clear
+        contentView.backgroundColor = .clear
+        
+        addSubviews(categoryImageView, categoryLabel)
+    }
+    
+    private func activateConstraint() {
+        NSLayoutConstraint.activate([
+            categoryImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            categoryImageView.topAnchor.constraint(equalTo: topAnchor, constant: 5),
+            
+            categoryLabel.topAnchor.constraint(equalTo: categoryImageView.bottomAnchor, constant: 10),
+            categoryLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
+        ])
     }
 }

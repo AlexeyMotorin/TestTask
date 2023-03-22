@@ -2,7 +2,7 @@ import UIKit
 
 protocol AvatarInfoViewDelegate: AnyObject {
     func showViewController(_ viewController: UIViewController)
-    func dismiissImagePicker()
+    func dismissImagePicker()
 }
 
 final class AvatarInfoView: UIView {
@@ -37,7 +37,7 @@ final class AvatarInfoView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(.ttGray, for: .normal)
         button.setTitle(Constants.changePhotoButtonTittle, for: .normal)
-        button.addTarget(self, action: #selector(changePhotoButtenTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(changePhotoButtonTapped), for: .touchUpInside)
         button.titleLabel?.font = UIFont(name: "Montserrat-Medium", size: 10)
         return button
     }()
@@ -87,7 +87,13 @@ final class AvatarInfoView: UIView {
     }
     
     private func addSubviews() {
-        addSubviews(profileLabel, profileAvatarImageView, changePhotoButton, profileFirstAndLastNameLabel, uploadItemButton)
+        addSubviews(
+            profileLabel,
+            profileAvatarImageView,
+            changePhotoButton,
+            profileFirstAndLastNameLabel,
+            uploadItemButton
+        )
     }
     
     private func activateConstraints() {
@@ -95,7 +101,6 @@ final class AvatarInfoView: UIView {
         let imageViewSide = frame.height / 10
         
         NSLayoutConstraint.activate([
-            
             heightAnchor.constraint(equalToConstant: frame.height / 3),
             widthAnchor.constraint(equalToConstant: frame.width),
             
@@ -122,13 +127,11 @@ final class AvatarInfoView: UIView {
         ])
     }
     
-    @objc private func changePhotoButtenTapped() {
+    @objc private func changePhotoButtonTapped() {
         showActionSheet()
     }
     
-    @objc private func uploadItemButtonTapped() {
-        
-    }
+    @objc private func uploadItemButtonTapped() {}
     
     private func showActionSheet() {
         let cameraIcon = UIImage(systemName: "camera")
@@ -176,7 +179,6 @@ extension AvatarInfoView: UIImagePickerControllerDelegate, UINavigationControlle
         profileAvatarImageView.contentMode = .scaleAspectFill
         profileAvatarImageView.clipsToBounds = true
         profileAvatarImageView.layer.cornerRadius = profileAvatarImageView.frame.size.width / 2
-        delegate?.dismiissImagePicker()
+        delegate?.dismissImagePicker()
     }
-    
 }

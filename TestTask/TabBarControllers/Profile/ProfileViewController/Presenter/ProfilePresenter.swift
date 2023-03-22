@@ -15,19 +15,18 @@ final class ProfilePresenter: NSObject {
         CellType(typeCell: .paymentMethods, title: "Payment method"),
         CellType(typeCell: .balance, title: "Balance", balance: AccountStorage.shared.profile?.balance),
         CellType(typeCell: .tradeHistory, title: "Trade history"),
-        CellType(typeCell: .restore, title: "Restore Purchasr"),
+        CellType(typeCell: .restore, title: "Restore Purchase"),
         CellType(typeCell: .help, title: "Help"),
         CellType(typeCell: .logOut, title: "Log out"),
     ]
     
     var logoutAlertModel: LogoutAlertModel {
-        
         let alertModel = LogoutAlertModel(
             title: "Выход из аккаунта",
             message: "Уверены, что хотите выйти?",
             buttonText: "Да") { [weak self] _ in
                 guard let self = self else { return }
-
+                
                 AccountStorage.shared.removeAccount()
                 self.cleanCookies()
                 self.showSignInViewController()
@@ -36,7 +35,9 @@ final class ProfilePresenter: NSObject {
     }
     
     private func showSignInViewController() {
-        guard let window = UIApplication.shared.windows.first else { fatalError("Invalid configuration")}
+        guard let window = UIApplication.shared.windows.first else {
+            fatalError("Invalid configuration")
+        }
         let signInVC = SignInPageViewController()
         window.rootViewController = signInVC
     }
@@ -49,11 +50,13 @@ extension ProfilePresenter: ProfilePresenterProtocol {
 }
 
 extension ProfilePresenter: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(
+        _ tableView: UITableView,
+        didSelectRowAt indexPath: IndexPath
+    ) {
         let cellType = cellTypes[indexPath.row]
         
         switch cellType.typeCell {
-            
         case .tradeStore:
             print("Show tradeStore")
         case .paymentMethods:
@@ -74,7 +77,6 @@ extension ProfilePresenter: UITableViewDelegate {
     private func cleanCookies() {
         print("Почистити куки")
     }
-    
 }
 
 extension ProfilePresenter: UITableViewDataSource {
@@ -120,7 +122,7 @@ extension ProfilePresenter: AvatarInfoViewDelegate {
         view?.viewController?.showViewController(viewController: viewController)
     }
     
-    func dismiissImagePicker() {
+    func dismissImagePicker() {
         view?.viewController?.dismissViewController()
     }
 }

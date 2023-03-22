@@ -1,6 +1,6 @@
 import Foundation
 
-struct ProducCelltModel {
+struct ProductCellModel {
     let category: String
     let name: String
     let price: Double

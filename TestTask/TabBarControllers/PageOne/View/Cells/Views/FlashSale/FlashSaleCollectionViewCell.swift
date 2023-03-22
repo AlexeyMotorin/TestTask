@@ -102,13 +102,11 @@ final class FlashSaleCollectionViewCell: UICollectionViewCell {
         priceLabel.text = nil
     }
     
-    func configure(with model: ProducCelltModel?) {
+    func configure(with model: ProductCellModel?) {
         downloadImage(at: model?.imageURL)
         sellerImageView.image = UIImage(named: model?.sellerImageURL ?? "Error")
-        
         categoryLabel.text = model?.category
         nameLabel.text = model?.name
-        
         saleLabel.text = "\(model?.discount ?? 0)% off"
         priceLabel.text = "$ \(model?.price ?? 0)"
     }
@@ -118,7 +116,16 @@ final class FlashSaleCollectionViewCell: UICollectionViewCell {
         contentView.layer.cornerRadius = 8
         contentView.layer.masksToBounds = false
         
-        contentView.addSubviews(productImageView, addProductButton, categoryLabel, nameLabel, priceLabel, likeProductButton, saleLabel, sellerImageView)
+        contentView.addSubviews(
+            productImageView,
+            addProductButton,
+            categoryLabel,
+            nameLabel,
+            priceLabel,
+            likeProductButton,
+            saleLabel,
+            sellerImageView
+        )
         
         NSLayoutConstraint.activate([
             productImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
@@ -168,7 +175,6 @@ final class FlashSaleCollectionViewCell: UICollectionViewCell {
         productImageView.kf.setImage(with: url)
     }
     
-    
     @objc private func addProductTapped() {
         print("добавили товар")
     }
@@ -176,6 +182,4 @@ final class FlashSaleCollectionViewCell: UICollectionViewCell {
     @objc private func  likeProductButtonTapped() {
         print("добавили в избранное")
     }
-    
-    
 }

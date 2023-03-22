@@ -73,17 +73,20 @@ final class TabBarController: UITabBarController {
             vc.tabBarItem.selectedImage = items[index].selectImage?.withRenderingMode(.alwaysOriginal)
         })
         
-        setTabBarAppearancee()
+        setTabBarAppearances()
     }
     
-    private func setTabBarAppearancee() {
+    private func setTabBarAppearances() {
         let width = view.bounds.width
         let height = view.bounds.height / 10
         let roundLayer = CAShapeLayer ()
         let bezierPath = UIBezierPath(
-            roundedRect: CGRect(x: 0,
-                                y: -20 ,
-                                width: width, height: 150),
+            roundedRect: CGRect(
+                x: 0,
+                y: -20 ,
+                width: width,
+                height: 150
+            ),
             cornerRadius: height / 2
         )
         roundLayer.path = bezierPath.cgPath
@@ -93,10 +96,5 @@ final class TabBarController: UITabBarController {
         roundLayer.fillColor = UIColor.ttWhite?.cgColor ?? UIColor.white.cgColor
         tabBar.tintColor = .blue
         tabBar.unselectedItemTintColor = .ttGray
-        
-    }
-    
-    deinit {
-        print("deinit TabBarController")
     }
 }

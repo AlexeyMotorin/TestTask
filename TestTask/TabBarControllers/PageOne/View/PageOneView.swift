@@ -23,6 +23,7 @@ final class PageOneView: UIView {
         tableView.backgroundColor = .clear
         tableView.isHidden = true
         tableView.alpha = 0
+        tableView.showsVerticalScrollIndicator = false
         tableView.register(CategoryTableViewCell.self, forCellReuseIdentifier: CategoryTableViewCell.reuseIdentifier)
         tableView.register(LatestTableViewCell.self, forCellReuseIdentifier: LatestTableViewCell.reuseIdentifier)
         tableView.register(FlashSaleTableViewCell.self, forCellReuseIdentifier: FlashSaleTableViewCell.reuseIdentifier)

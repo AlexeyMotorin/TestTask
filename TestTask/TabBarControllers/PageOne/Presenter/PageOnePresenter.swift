@@ -26,6 +26,7 @@ final class PageOnePresenter: NSObject {
     }
 }
 
+// MARK: PageOnePresenterProtocol
 extension PageOnePresenter: PageOnePresenterProtocol {
     func viewDidLoad() {
         registerObserver()
@@ -54,6 +55,7 @@ extension PageOnePresenter: PageOnePresenterProtocol {
     }
 }
 
+// MARK: UITableViewDelegate
 extension PageOnePresenter: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
@@ -69,6 +71,7 @@ extension PageOnePresenter: UITableViewDelegate {
     }
 }
 
+// MARK: UITableViewDataSource
 extension PageOnePresenter: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         PageOneTypeCell.allCases.count

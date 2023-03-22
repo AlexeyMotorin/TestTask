@@ -10,7 +10,7 @@ enum ProfileTypeCell {
     case logOut
 }
 
-class ProfileSettingsCell: UITableViewCell {
+final class ProfileSettingsCell: UITableViewCell {
     static let reuseIdentifier = "ProfileCell"
     
     private lazy var informationImageView: UIImageView = {
@@ -22,7 +22,7 @@ class ProfileSettingsCell: UITableViewCell {
         return imageView
     }()
     
-    private lazy var informationLable: UILabel = {
+    private lazy var informationLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: "Montserrat-Medium", size: 15)
@@ -41,7 +41,7 @@ class ProfileSettingsCell: UITableViewCell {
         return imageView
     }()
     
-    private lazy var balanceLable: UILabel = {
+    private lazy var balanceLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: "Montserrat", size: 15)
@@ -49,7 +49,6 @@ class ProfileSettingsCell: UITableViewCell {
         label.isHidden = true
         return label
     }()
-    
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -62,7 +61,12 @@ class ProfileSettingsCell: UITableViewCell {
     
     private func setupView() {
         backgroundColor = .clear
-        contentView.addSubviews(informationImageView, informationLable, forwardImageView, balanceLable)
+        contentView.addSubviews(
+            informationImageView,
+            informationLabel,
+            forwardImageView,
+            balanceLabel
+        )
         
         let side = UIScreen.main.bounds.height / 20
         
@@ -72,21 +76,19 @@ class ProfileSettingsCell: UITableViewCell {
             informationImageView.widthAnchor.constraint(equalToConstant: side),
             informationImageView.heightAnchor.constraint(equalToConstant: side),
             
-            informationLable.centerYAnchor.constraint(equalTo: informationImageView.centerYAnchor),
-            informationLable.leftAnchor.constraint(equalTo: informationImageView.rightAnchor, constant: 10),
+            informationLabel.centerYAnchor.constraint(equalTo: informationImageView.centerYAnchor),
+            informationLabel.leftAnchor.constraint(equalTo: informationImageView.rightAnchor, constant: 10),
             
             forwardImageView.centerYAnchor.constraint(equalTo: informationImageView.centerYAnchor),
             forwardImageView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -40),
             
-            balanceLable.centerYAnchor.constraint(equalTo: informationImageView.centerYAnchor),
-            balanceLable.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -40),
-            
+            balanceLabel.centerYAnchor.constraint(equalTo: informationImageView.centerYAnchor),
+            balanceLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -40),
         ])
     }
     
     func config(typeCell: CellType) {
-        
-        informationLable.text = typeCell.title
+        informationLabel.text = typeCell.title
         
         switch typeCell.typeCell {
         case .tradeStore, .paymentMethods, .tradeHistory:
@@ -113,8 +115,8 @@ class ProfileSettingsCell: UITableViewCell {
     
     private func balanceCellConfig(balance: String) {
         informationImageView.image = UIImage(named: "Payment")
-        balanceLable.isHidden = false
-        balanceLable.text = "$ \(balance)"
+        balanceLabel.isHidden = false
+        balanceLabel.text = "$ \(balance)"
     }
     
     private func restoreCellConfig() {

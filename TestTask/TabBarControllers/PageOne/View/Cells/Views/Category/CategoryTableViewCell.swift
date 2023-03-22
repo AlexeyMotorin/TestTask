@@ -14,26 +14,38 @@ final class CategoryTableViewCell: UITableViewCell {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-        collectionView.register(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: CategoryCollectionViewCell.reuseIdentifier)
+        collectionView.register(
+            UICollectionViewCell.self,
+            forCellWithReuseIdentifier: "cell"
+        )
+        collectionView.register(
+            CategoryCollectionViewCell.self,
+            forCellWithReuseIdentifier: CategoryCollectionViewCell.reuseIdentifier
+        )
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .clear
         collectionView.showsHorizontalScrollIndicator = false
         return collectionView
     }()
     
-
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setupView()
+        activateConstraint()
+        setupPresenter()
+        setupCollectionView()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setupView() {
         backgroundColor = .clear
-        presenter = CategoryCellPresenter()
-        presenter?.cellView = self
-        
-        collectionView.delegate = presenter as? CategoryCellPresenter
-        collectionView.dataSource = presenter as? CategoryCellPresenter
-        
         contentView.addSubview(collectionView)
-        
+    }
+    
+    private func activateConstraint() {
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: contentView.topAnchor),
             collectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
@@ -42,13 +54,17 @@ final class CategoryTableViewCell: UITableViewCell {
         ])
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    private func setupPresenter() {
+        presenter = CategoryCellPresenter()
+        presenter?.cellView = self
+        presenter?.viewDidLoad()
+    }
+    
+    private func setupCollectionView() {
+        collectionView.delegate = presenter as? CategoryCellPresenter
+        collectionView.dataSource = presenter as? CategoryCellPresenter
     }
 }
 
-extension CategoryTableViewCell: CategoryTableViewCellProtocol {
-    
-
-}
+extension CategoryTableViewCell: CategoryTableViewCellProtocol {}
 

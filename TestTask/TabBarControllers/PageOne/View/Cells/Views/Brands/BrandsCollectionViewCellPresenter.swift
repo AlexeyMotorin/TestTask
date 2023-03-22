@@ -20,27 +20,31 @@ extension BrandsCollectionViewCellPresenter: BrandsCollectionViewCellPresenterPr
 }
 
 extension BrandsCollectionViewCellPresenter: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        numberOfItemsInSection section: Int
+    ) -> Int {
         brands.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BrandCollectionViewCell.reuseIdentifier, for: indexPath) as? BrandCollectionViewCell else {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: BrandCollectionViewCell.reuseIdentifier,
+            for: indexPath
+        ) as? BrandCollectionViewCell else {
             fatalError("Unsupported cell")
         }
-        
         let brand = brands[safe: indexPath.row]
         cell.configure(with: brand)
         return cell
-    
     }
 }
 
 extension BrandsCollectionViewCellPresenter: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {}
 }
 
 extension BrandsCollectionViewCellPresenter: UICollectionViewDelegateFlowLayout {

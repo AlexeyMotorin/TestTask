@@ -6,7 +6,7 @@ protocol FlashSaleTableViewCellProtocol: AnyObject {
 }
 
 class FlashSaleTableViewCell: UITableViewCell {
-
+    
     static let reuseIdentifier = "FlashSaleTableViewCell"
     
     var presenter: FlashSaleCollectionViewPresenterProtocol?
@@ -25,7 +25,7 @@ class FlashSaleTableViewCell: UITableViewCell {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(.ttGray, for: .normal)
         button.setTitle("View all", for: .normal)
-        button.addTarget(self, action: #selector(viewAllButtenTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(viewAllButtonTapped), for: .touchUpInside)
         button.titleLabel?.font = UIFont(name: "Montserrat", size: 10)
         return button
     }()
@@ -41,20 +41,36 @@ class FlashSaleTableViewCell: UITableViewCell {
         collectionView.showsHorizontalScrollIndicator = false
         return collectionView
     }()
-
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setupPresenter()
+        setupCollectionView()
+        setupView()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setupPresenter() {
         presenter = FlashSaleCollectionViewPresenter()
         presenter?.view = self
         presenter?.viewDidLoad()
+    }
+    
+    private func setupCollectionView() {
         collectionView.delegate = presenter as? FlashSaleCollectionViewPresenter
         collectionView.dataSource = presenter as? FlashSaleCollectionViewPresenter
-        setupView()
     }
     
     private func setupView() {
         backgroundColor = .clear
-        contentView.addSubviews(flashSaleLabel, viewAllButton, collectionView)
+        contentView.addSubviews(
+            flashSaleLabel,
+            viewAllButton,
+            collectionView
+        )
         
         NSLayoutConstraint.activate([
             flashSaleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor),
@@ -70,11 +86,7 @@ class FlashSaleTableViewCell: UITableViewCell {
         ])
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    @objc private func viewAllButtenTapped() {
+    @objc private func viewAllButtonTapped() {
         print("View all tapped")
     }
 }

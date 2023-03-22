@@ -18,7 +18,7 @@ final class LatestService {
     
     //указатель на активную задачу, если задач нет, значение = nil. Значение присваивается до task.resume(), при успешном выполнении обнуляется
     private var task: URLSessionTask?
-    private(set) var latests: [ProducCelltModel] = []
+    private(set) var latests: [ProductCellModel] = []
     
     // MARK: - Public properties
     func fetchLatestProducts() {
@@ -63,8 +63,8 @@ final class LatestService {
         return request
     }
     
-    private func getProduct(from result: Latest) -> ProducCelltModel {
-        let latest = ProducCelltModel(
+    private func getProduct(from result: Latest) -> ProductCellModel {
+        let latest = ProductCellModel(
             category: result.category,
             name: result.name,
             price: result.price,

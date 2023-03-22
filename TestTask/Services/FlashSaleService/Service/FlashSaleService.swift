@@ -18,7 +18,7 @@ final class FlashSaleService {
     
     //указатель на активную задачу, если задач нет, значение = nil. Значение присваивается до task.resume(), при успешном выполнении обнуляется
     private var task: URLSessionTask?
-    private(set) var flashSaleProducts: [ProducCelltModel] = []
+    private(set) var flashSaleProducts: [ProductCellModel] = []
     
     private var flashSaleRequest: URLRequest? {
         let urlString = "https://run.mocky.io"
@@ -63,8 +63,8 @@ final class FlashSaleService {
     
     
     // MARK: - Private methods
-    private func getProduct(from result: FlashSaleProduct) -> ProducCelltModel {
-        let productCell = ProducCelltModel(
+    private func getProduct(from result: FlashSaleProduct) -> ProductCellModel {
+        let productCell = ProductCellModel(
             category: result.category,
             name: result.name,
             price: result.price,

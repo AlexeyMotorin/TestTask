@@ -52,7 +52,7 @@ final class BrandCollectionViewCell: UICollectionViewCell {
         let gradient = CAGradientLayer()
         gradient.frame = contentView.bounds
         gradient.locations = [0, 0.1, 0.3]
-        gradient.colors = [            
+        gradient.colors = [
             UIColor.white.cgColor,
             UIColor.lightGray,
             UIColor.gray.cgColor
