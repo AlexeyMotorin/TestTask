@@ -2,6 +2,7 @@ import UIKit
 
 protocol LatestTableViewCellProtocol: AnyObject {
     var presenter: LatestCollectionViewPresenterProtocol? { get set }
+    func updateCollectionView()
 }
 
 
@@ -47,6 +48,7 @@ class LatestTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         presenter = LatestCollectionViewPresenter()
         presenter?.view = self
+        presenter?.viewDidLoad()
         collectionView.delegate = presenter as? LatestCollectionViewPresenter
         collectionView.dataSource = presenter as? LatestCollectionViewPresenter
         setupView()
@@ -79,4 +81,10 @@ class LatestTableViewCell: UITableViewCell {
     }
 }
 
-extension LatestTableViewCell: LatestTableViewCellProtocol {}
+extension LatestTableViewCell: LatestTableViewCellProtocol {
+    func updateCollectionView() {
+        collectionView.performBatchUpdates {
+            collectionView.reloadData()
+        }
+    }
+}

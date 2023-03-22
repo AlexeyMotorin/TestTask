@@ -2,19 +2,39 @@ import UIKit
 
 protocol LatestCollectionViewPresenterProtocol: AnyObject {
     var view: LatestTableViewCellProtocol? { get set }
+    func viewDidLoad()
 }
 
 final class LatestCollectionViewPresenter: NSObject {
     weak var view: LatestTableViewCellProtocol?
     private var latestProducts: [LatestProductModel] = []
+    private var latestServiceObserver: NSObjectProtocol?
+    
+    
 }
 
-extension LatestCollectionViewPresenter: LatestCollectionViewPresenterProtocol {}
+extension LatestCollectionViewPresenter: LatestCollectionViewPresenterProtocol {
+    func viewDidLoad() {
+        print("LatestCollectionViewPresenter")
+        latestServiceObserver = NotificationCenter.default
+            .addObserver(forName: LatestService.didChangeNotification,
+                         object: nil,
+                         queue: .main,
+                         using: { [weak self] _ in
+                guard let self = self else { return }
+                self.requestUpdateCollectionView()
+            })
+    }
+    
+    private func requestUpdateCollectionView() {
+        latestProducts = LatestService.shared.latests
+        view?.updateCollectionView()
+    }
+}
 
 extension LatestCollectionViewPresenter: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-       // latestProducts.count
-        10
+        latestProducts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -23,8 +43,8 @@ extension LatestCollectionViewPresenter: UICollectionViewDataSource {
             fatalError("Unsupported cell")
         }
         
-//        let latestModel = latestProducts[indexPath.row]
-//        cell.configure(with: latestModel)
+        let latestModel = latestProducts[safe: indexPath.row]
+        cell.configure(with: latestModel)
             
         return cell
     

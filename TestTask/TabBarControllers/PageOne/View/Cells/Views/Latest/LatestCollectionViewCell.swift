@@ -1,4 +1,5 @@
 import UIKit
+import Kingfisher
 
 final class LatestCollectionViewCell: UICollectionViewCell {
     
@@ -10,7 +11,7 @@ final class LatestCollectionViewCell: UICollectionViewCell {
         imageView.backgroundColor = .black
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 8
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
     
@@ -70,7 +71,7 @@ final class LatestCollectionViewCell: UICollectionViewCell {
     
     func configure(with model: LatestProductModel?) {
         // TODO: скачать картинку
-        productImageView.image
+        downloadImage(at: model?.imageURL)
         categoryLabel.text = model?.category
         nameLabel.text = model?.name
         
@@ -112,6 +113,24 @@ final class LatestCollectionViewCell: UICollectionViewCell {
 
     @objc private func addProductTapped() {
         print("добавили товар")
+    }
+    
+    private func downloadImage(at url: String?) {
+        guard
+            let urlString = url,
+            let url = URL(string: urlString) else { return }
+        productImageView.kf.indicatorType = .activity
+        
+        productImageView.kf.setImage(with: url)
+//        productImageView.kf.setImage(with: url, placeholder: UIImage(named: "Stub"), options: nil) { [weak self] result in
+//            guard let self = self else { return }
+//            switch result {
+//            case .success(let value):
+//                self.productImageView.image = value.image
+//            case .failure(_):
+//                self.cellImageView.image = UIImage(named: "Stub")
+//            }
+//        }
     }
     
 }

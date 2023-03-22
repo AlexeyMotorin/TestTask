@@ -19,6 +19,7 @@ final class PageOnePresenter: NSObject {
 extension PageOnePresenter: PageOnePresenterProtocol {
     func viewDidLoad() {
         print("PageOnePresenter did load")
+        LatestService.shared.fetchLatestProducts()
     }
 }
 
